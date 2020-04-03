@@ -50,17 +50,7 @@ void DatabaseView::initEvent()
 
 void DatabaseView::onConnectDb()
 {
-    Config & config = CONTEXT.config;
-    /*
-    QLibrary *joker_lib = NULL;
-    
-    joker_lib = new QLibrary(qApp->applicationDirPath()+"/oci.dll");
-    joker_lib->load();
-    if (!joker_lib->isLoaded()) {
-        QMessageBox::information(this, tr("Error Message"), qApp->applicationDirPath()+"/" + tr("oci.dll load failed!"));
-        return;
-    }
-    */
+    Config & config = CONTEXT.config;    
 
     db = QSqlDatabase::addDatabase("QOCI");//QOCI
     db.setPort(config.get("db_port").toInt());
