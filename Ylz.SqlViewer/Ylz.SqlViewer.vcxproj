@@ -95,10 +95,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Config.cpp" />
+    <ClCompile Include="CustomSqlModel.cpp" />
     <ClCompile Include="DatabaseView.cpp" />
     <ClCompile Include="highlighter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SettingsView.cpp" />
+    <ClCompile Include="TraceView.cpp" />
     <ClCompile Include="YlzSqlViewer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +109,7 @@
   <ItemGroup>
     <QtUic Include="DatabaseView.ui" />
     <QtUic Include="SettingsView.ui" />
+    <QtUic Include="TraceView.ui" />
     <QtUic Include="YlzSqlViewer.ui" />
   </ItemGroup>
   <ItemGroup>
@@ -114,7 +117,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h" />
+    <QtMoc Include="TraceView.h" />
     <QtMoc Include="DatabaseView.h" />
+    <QtMoc Include="CustomSqlModel.h" />
     <ClInclude Include="GlobalContext.h" />
     <ClInclude Include="resource.h" />
     <QtMoc Include="SettingsView.h" />

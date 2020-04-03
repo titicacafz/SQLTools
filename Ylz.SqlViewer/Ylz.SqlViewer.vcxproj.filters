@@ -14,7 +14,13 @@
     <ClCompile Include="SettingsView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TraceView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="DatabaseView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomSqlModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -55,7 +61,13 @@
     <QtMoc Include="SettingsView.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="TraceView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
     <QtMoc Include="DatabaseView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="CustomSqlModel.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -64,6 +76,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="SettingsView.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="TraceView.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="DatabaseView.ui">

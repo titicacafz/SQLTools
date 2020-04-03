@@ -20,13 +20,7 @@
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
-      <widget class="QPlainTextEdit" name="textEdit">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-      </widget>
+      <widget class="QMdiArea" name="mdiArea"/>
      </widget>
     </item>
    </layout>
@@ -48,13 +42,11 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionStart"/>
-   <addaction name="actionStop"/>
+   <addaction name="actionMonitor"/>
+   <addaction name="actionDatabase"/>
    <addaction name="separator"/>
-   <addaction name="actionClear"/>
    <addaction name="actionSettings"/>
    <addaction name="separator"/>
-   <addaction name="actionSave"/>
    <addaction name="actionLogDownload"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
@@ -141,6 +133,18 @@
    </property>
    <property name="toolTip">
     <string>Database</string>
+   </property>
+  </action>
+  <action name="actionMonitor">
+   <property name="icon">
+    <iconset resource="YlzSqlViewer.qrc">
+     <normaloff>:/YlzSqlViewer/Resources/monitor.ico</normaloff>:/YlzSqlViewer/Resources/monitor.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Monitor</string>
+   </property>
+   <property name="toolTip">
+    <string>Monitor</string>
    </property>
   </action>
  </widget>

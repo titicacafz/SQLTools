@@ -1,10 +1,8 @@
-<UI version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>DatabaseView</class>
- <widget class="QDockWidget" name="DatabaseView" >
-  <property name="objectName" >
-   <string notr="true">DatabaseView</string>
-  </property>
-  <property name="geometry" >
+ <widget class="QWidget" name="DatabaseView">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -12,13 +10,40 @@
     <height>300</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>DatabaseView</string>
   </property>
-  <widget class="QWidget" name="widget" />
+  <action name="actionConnectDb">
+   <property name="icon">
+    <iconset resource="YlzSqlViewer.qrc">
+     <normaloff>:/YlzSqlViewer/Resources/conn_db.ico</normaloff>:/YlzSqlViewer/Resources/conn_db.ico</iconset>
+   </property>
+   <property name="text">
+    <string>ConnectDb</string>
+   </property>
+   <property name="toolTip">
+    <string>Connect Databse</string>
+   </property>
+  </action>
+  <action name="actionRunSQL">
+   <property name="icon">
+    <iconset resource="YlzSqlViewer.qrc">
+     <normaloff>:/YlzSqlViewer/Resources/run_sql.ico</normaloff>:/YlzSqlViewer/Resources/run_sql.ico</iconset>
+   </property>
+   <property name="text">
+    <string>RunSQL</string>
+   </property>
+   <property name="toolTip">
+    <string>Run SQL</string>
+   </property>
+   <property name="shortcut">
+    <string>F8</string>
+   </property>
+  </action>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
- <resources/>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="YlzSqlViewer.qrc"/>
+ </resources>
  <connections/>
-</UI>
+</ui>
