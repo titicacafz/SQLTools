@@ -97,7 +97,7 @@
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="CustomSqlModel.cpp" />
     <ClCompile Include="DatabaseView.cpp" />
-    <ClCompile Include="highlighter.cpp" />
+    <ClCompile Include="HighLighter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SettingsView.cpp" />
     <ClCompile Include="SQLEdit.cpp" />
@@ -123,9 +123,9 @@
     <QtMoc Include="DatabaseView.h" />
     <QtMoc Include="CustomSqlModel.h" />
     <ClInclude Include="GlobalContext.h" />
+    <QtMoc Include="HighLighter.h" />
     <ClInclude Include="resource.h" />
     <QtMoc Include="SettingsView.h" />
-    <QtMoc Include="highlighter.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ylz.sqlviewer_zh.ts" />

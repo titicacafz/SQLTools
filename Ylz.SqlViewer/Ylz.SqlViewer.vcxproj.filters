@@ -8,9 +8,6 @@
     <ClCompile Include="Config.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="highlighter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SettingsView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -24,6 +21,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SQLEdit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HighLighter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -58,9 +58,6 @@
     <QtMoc Include="YlzSqlViewer.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="highlighter.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="SettingsView.h">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -74,6 +71,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="SQLEdit.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="HighLighter.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
