@@ -2,7 +2,6 @@
 #include <Windows.h>
 #include <tchar.h>
 #include <DbgHelp.h>
-#pragma comment(lib, "dbghelp.lib")
 
 #ifdef UNICODE
 #define TSprintf	wsprintf

@@ -64,6 +64,7 @@
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>$(QTDIR)\bin\lrelease.exe $(LocalDebuggerWorkingDirectory)ylz.sqlviewer_zh.ts -qm $(OutDir)ylz.sqlviewer_zh.qm </Command>
@@ -84,6 +85,7 @@
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>$(QTDIR)\bin\lrelease.exe $(LocalDebuggerWorkingDirectory)ylz.sqlviewer_zh.ts -qm $(OutDir)ylz.sqlviewer_zh.qm </Command>
@@ -99,6 +101,7 @@
     <ClCompile Include="DatabaseView.cpp" />
     <ClCompile Include="HighLighter.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MiniDump.cpp" />
     <ClCompile Include="SettingsView.cpp" />
     <ClCompile Include="SQLEdit.cpp" />
     <ClCompile Include="TraceView.cpp" />
@@ -124,6 +127,7 @@
     <QtMoc Include="CustomSqlModel.h" />
     <ClInclude Include="GlobalContext.h" />
     <QtMoc Include="HighLighter.h" />
+    <ClInclude Include="MiniDump.h" />
     <ClInclude Include="resource.h" />
     <QtMoc Include="SettingsView.h" />
   </ItemGroup>
