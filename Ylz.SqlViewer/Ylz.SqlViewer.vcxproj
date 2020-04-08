@@ -100,6 +100,7 @@
     <ClCompile Include="highlighter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SettingsView.cpp" />
+    <ClCompile Include="SQLEdit.cpp" />
     <ClCompile Include="TraceView.cpp" />
     <ClCompile Include="YlzSqlViewer.cpp" />
   </ItemGroup>
@@ -117,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h" />
+    <QtMoc Include="SQLEdit.h" />
     <QtMoc Include="TraceView.h" />
     <QtMoc Include="DatabaseView.h" />
     <QtMoc Include="CustomSqlModel.h" />

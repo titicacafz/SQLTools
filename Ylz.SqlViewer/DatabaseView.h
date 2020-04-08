@@ -4,7 +4,7 @@
 #include <QSqlDatabase>
 #include "ui_DatabaseView.h"
 
-class QPlainTextEdit;
+class SQLEdit;
 class QTableView;
 class QSqlDatabase;
 
@@ -19,7 +19,7 @@ public:
 private:
     Ui::DatabaseView ui;
 
-    QPlainTextEdit * textEdit;
+    SQLEdit * textEdit;
     QTableView     * tableView;
 
     //Êý¾Ý¿â

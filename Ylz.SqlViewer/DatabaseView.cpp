@@ -1,6 +1,5 @@
 #include "DatabaseView.h"
 #include <QToolBar>
-#include <QPlainTextEdit>
 #include <QTableView>
 #include <QVBoxLayout>
 #include <QMessageBox>
@@ -8,6 +7,7 @@
 #include "highlighter.h"
 #include "GlobalContext.h"
 #include "CustomSqlModel.h"
+#include "SQLEdit.h"
 
 
 DatabaseView::DatabaseView(QWidget *parent)
@@ -28,7 +28,7 @@ void DatabaseView::initView()
     toolbar->addAction(ui.actionConnectDb);
     toolbar->addAction(ui.actionRunSQL);
 
-    textEdit = new QPlainTextEdit(this);
+    textEdit = new SQLEdit(this);
     Highlighter *highlighter = new Highlighter(textEdit->document());
     tableView = new QTableView(this);
     tableView->setVisible(false);
@@ -39,20 +39,20 @@ void DatabaseView::initView()
     vboxLayout->addWidget(toolbar);
     vboxLayout->addWidget(textEdit);
     vboxLayout->addWidget(tableView);
-    setLayout(vboxLayout);
+    setLayout(vboxLayout);    
 }
 
 void DatabaseView::initEvent()
 {
     connect(ui.actionConnectDb, &QAction::triggered, this, &DatabaseView::onConnectDb);
-    connect(ui.actionRunSQL, &QAction::triggered, this, &DatabaseView::onRunSql);
+    connect(ui.actionRunSQL, &QAction::triggered, this, &DatabaseView::onRunSql);    
 }
 
 void DatabaseView::onConnectDb()
 {
     Config & config = CONTEXT.config;    
 
-    db = QSqlDatabase::addDatabase("QOCI");//QOCI
+    db = QSqlDatabase::addDatabase(config.get("db_driver"));//QOCI
     db.setPort(config.get("db_port").toInt());
     db.setHostName(config.get("db_host"));
     db.setDatabaseName(config.get("db_database"));
