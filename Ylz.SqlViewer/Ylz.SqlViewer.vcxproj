@@ -99,6 +99,7 @@
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="CustomSqlModel.cpp" />
     <ClCompile Include="DatabaseView.cpp" />
+    <ClCompile Include="ErrorEdit.cpp" />
     <ClCompile Include="HighLighter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MiniDump.cpp" />
@@ -125,6 +126,7 @@
     <QtMoc Include="TraceView.h" />
     <QtMoc Include="DatabaseView.h" />
     <QtMoc Include="CustomSqlModel.h" />
+    <QtMoc Include="ErrorEdit.h" />
     <ClInclude Include="GlobalContext.h" />
     <QtMoc Include="HighLighter.h" />
     <ClInclude Include="MiniDump.h" />

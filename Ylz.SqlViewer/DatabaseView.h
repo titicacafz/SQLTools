@@ -5,6 +5,7 @@
 #include "ui_DatabaseView.h"
 
 class SQLEdit;
+class ErrorEdit;
 class QTableView;
 class QSqlDatabase;
 
@@ -21,6 +22,7 @@ private:
 
     SQLEdit * textEdit;
     QTableView     * tableView;
+    ErrorEdit * errorEdit;
 
     //Êý¾Ý¿â
     QSqlDatabase db;

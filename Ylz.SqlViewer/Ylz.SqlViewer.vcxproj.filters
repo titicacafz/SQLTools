@@ -29,6 +29,9 @@
     <ClCompile Include="MiniDump.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ErrorEdit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Resource Files">
@@ -77,6 +80,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="HighLighter.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ErrorEdit.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
