@@ -97,6 +97,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Config.cpp" />
+    <ClCompile Include="CopyableTableView.cpp" />
     <ClCompile Include="CustomSqlModel.cpp" />
     <ClCompile Include="DatabaseView.cpp" />
     <ClCompile Include="ErrorEdit.cpp" />
@@ -127,6 +128,7 @@
     <QtMoc Include="DatabaseView.h" />
     <QtMoc Include="CustomSqlModel.h" />
     <QtMoc Include="ErrorEdit.h" />
+    <QtMoc Include="CopyableTableView.h" />
     <ClInclude Include="GlobalContext.h" />
     <QtMoc Include="HighLighter.h" />
     <ClInclude Include="MiniDump.h" />

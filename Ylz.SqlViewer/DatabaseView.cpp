@@ -1,6 +1,5 @@
 #include "DatabaseView.h"
 #include <QToolBar>
-#include <QTableView>
 #include <QVBoxLayout>
 #include <QMessageBox>
 #include <QSqlError>
@@ -10,6 +9,7 @@
 #include "CustomSqlModel.h"
 #include "SQLEdit.h"
 #include "ErrorEdit.h"
+#include "CopyableTableView.h"
 
 
 DatabaseView::DatabaseView(QWidget *parent)
@@ -32,7 +32,7 @@ void DatabaseView::initView()
 
     textEdit = new SQLEdit(this);
     Highlighter *highlighter = new Highlighter(textEdit->document());
-    tableView = new QTableView(this);
+    tableView = new CopyableTableView(this);
     tableView->setVisible(false);
     tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     tableView->setSelectionBehavior(QAbstractItemView::SelectRows);//设置选中模式
@@ -130,4 +130,9 @@ void DatabaseView::onRunSql()
         tableView->setUpdatesEnabled(true);
     }
     
+}
+
+void DatabaseView::onCopy()
+{
+
 }

@@ -32,6 +32,9 @@
     <ClCompile Include="ErrorEdit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CopyableTableView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Resource Files">
@@ -83,6 +86,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="ErrorEdit.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="CopyableTableView.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

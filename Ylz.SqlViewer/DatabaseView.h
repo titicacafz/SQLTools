@@ -6,7 +6,7 @@
 
 class SQLEdit;
 class ErrorEdit;
-class QTableView;
+class CopyableTableView;
 class QSqlDatabase;
 
 class DatabaseView : public QWidget
@@ -21,7 +21,7 @@ private:
     Ui::DatabaseView ui;
 
     SQLEdit * textEdit;
-    QTableView     * tableView;
+    CopyableTableView     * tableView;
     ErrorEdit * errorEdit;
 
     //数据库
@@ -39,4 +39,7 @@ private:
 
     //运行SQL
     void onRunSql();
+
+    //copy
+    void onCopy();
 };

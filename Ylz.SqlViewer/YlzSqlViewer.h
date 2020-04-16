@@ -14,10 +14,8 @@ public:
 
 private:
     Ui::YlzSqlViewerClass ui;
-
  
-    QStatusBar * status_bar;
-    
+    QStatusBar * status_bar;    
 
     //´ò¿ª¼à¿Ø
     void onMonitor();
