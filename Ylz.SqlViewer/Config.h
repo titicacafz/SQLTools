@@ -3,7 +3,7 @@
 class QSettings;
 class QString;
 
-class Config
+class Config final
 {    
 public:
     Config();

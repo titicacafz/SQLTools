@@ -44,6 +44,7 @@
    </attribute>
    <addaction name="actionMonitor"/>
    <addaction name="actionDatabase"/>
+   <addaction name="actionDDL"/>
    <addaction name="separator"/>
    <addaction name="actionSettings"/>
    <addaction name="separator"/>
@@ -145,6 +146,15 @@
    </property>
    <property name="toolTip">
     <string>Monitor</string>
+   </property>
+  </action>
+  <action name="actionDDL">
+   <property name="icon">
+    <iconset resource="YlzSqlViewer.qrc">
+     <normaloff>:/YlzSqlViewer/Resources/ddl.ico</normaloff>:/YlzSqlViewer/Resources/ddl.ico</iconset>
+   </property>
+   <property name="text">
+    <string>DDL</string>
    </property>
   </action>
  </widget>

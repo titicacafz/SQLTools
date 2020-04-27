@@ -21,11 +21,8 @@ private:
     Ui::DatabaseView ui;
 
     SQLEdit * textEdit;
-    CopyableTableView     * tableView;
     ErrorEdit * errorEdit;
-
-    //数据库
-    QSqlDatabase db;
+    CopyableTableView* tableView;
 
     //初始化界面
     void initView();
@@ -40,6 +37,4 @@ private:
     //运行SQL
     void onRunSql();
 
-    //copy
-    void onCopy();
 };

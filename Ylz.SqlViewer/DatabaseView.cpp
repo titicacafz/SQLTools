@@ -3,6 +3,7 @@
 #include <QVBoxLayout>
 #include <QMessageBox>
 #include <QSqlError>
+#include <QSqlQuery>
 
 #include "highlighter.h"
 #include "GlobalContext.h"
@@ -10,6 +11,7 @@
 #include "SQLEdit.h"
 #include "ErrorEdit.h"
 #include "CopyableTableView.h"
+#include "DbConnection.h"
 
 
 DatabaseView::DatabaseView(QWidget *parent)
@@ -54,21 +56,12 @@ void DatabaseView::initEvent()
 }
 
 void DatabaseView::onConnectDb()
-{
-    Config & config = CONTEXT.config;    
-
-    db = QSqlDatabase::addDatabase(config.get("db_driver"));//QOCI
-    db.setPort(config.get("db_port").toInt());
-    db.setHostName(config.get("db_host"));
-    db.setDatabaseName(config.get("db_database"));
-    db.setUserName(config.get("db_user"));
-    db.setPassword(config.get("db_pass"));
-
-
-    if (db.open()) {        
+{    
+    if (DbConnection::database().isOpen()) {
         errorEdit->setPlainText(tr("Connect to databse successed!"));
         errorEdit->setVisible(true);
-        tableView->setVisible(false);
+        tableView->setVisible(false);        
+        //CONTEXT.dbContext.load(db);
     }
     else {
         errorEdit->setPlainText(tr("Connect to databse failed!"));
@@ -98,12 +91,12 @@ void DatabaseView::onRunSql()
     }
 
     //Ö´ÐÐsql
-    if (!db.isOpen())
+    if (!DbConnection::database().isOpen())
     {
         onConnectDb();
     }
 
-    if (!db.isOpen())
+    if (!DbConnection::database().isOpen())
     {
         return;
     }
@@ -111,11 +104,10 @@ void DatabaseView::onRunSql()
     //
     tableView->setUpdatesEnabled(false);
     CustomSqlModel *model = new CustomSqlModel(this);
-    model->setQuery(sql_text, db);   
+    model->setQuery(sql_text, DbConnection::database());
     QSqlError error = model->lastError();
     if (error.type() != QSqlError::NoError)
     {
-        //QMessageBox::information(this, tr("Error Message"), error.text());  
         errorEdit->setPlainText(error.text());
         errorEdit->setVisible(true);
         tableView->setVisible(false);
@@ -130,9 +122,4 @@ void DatabaseView::onRunSql()
         tableView->setUpdatesEnabled(true);
     }
     
-}
-
-void DatabaseView::onCopy()
-{
-
 }

@@ -29,4 +29,7 @@ private:
     //数据库查看工具
     void onDatabase();
 
+    //DDL
+    void onDDL();
+
 };

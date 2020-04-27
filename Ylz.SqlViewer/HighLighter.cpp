@@ -246,12 +246,12 @@ Highlighter::Highlighter(QTextDocument *parent)
         highlightingRules.append(rule);
     }
     
-    singleLineCommentFormat.setForeground(Qt::green);
+    singleLineCommentFormat.setForeground(Qt::darkGray);
     rule.pattern = QRegularExpression(QStringLiteral("--[^\n]*"));
     rule.format = singleLineCommentFormat;
     highlightingRules.append(rule);
 
-    multiLineCommentFormat.setForeground(Qt::green);
+    multiLineCommentFormat.setForeground(Qt::darkGray);
     
     
     functionFormat.setForeground(Qt::blue);

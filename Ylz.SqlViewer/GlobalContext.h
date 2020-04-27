@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Config.h"
+#include "DbContext.h"
 
 
 class GlobalContext
@@ -14,7 +15,11 @@ public:
         return context;
     }    
 
+    //≈‰÷√Œƒº˛
     Config config;
+
+    //
+    DbContext dbContext;
 };
 
 #define  CONTEXT GlobalContext::instance()

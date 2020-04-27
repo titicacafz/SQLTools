@@ -7,6 +7,7 @@
 #include "SettingsView.h"
 #include "DatabaseView.h"
 #include "TraceView.h"
+#include "DDLView.h"
 
 
 YlzSqlViewer::YlzSqlViewer(QWidget *parent)
@@ -23,7 +24,8 @@ YlzSqlViewer::YlzSqlViewer(QWidget *parent)
     connect(ui.actionMonitor, &QAction::triggered, this, &YlzSqlViewer::onMonitor);
     connect(ui.actionSettings, &QAction::triggered, this, &YlzSqlViewer::onSettings);
     connect(ui.actionLogDownload, &QAction::triggered, this, &YlzSqlViewer::onLogDownload);
-    connect(ui.actionDatabase, &QAction::triggered, this, &YlzSqlViewer::onDatabase);    
+    connect(ui.actionDatabase, &QAction::triggered, this, &YlzSqlViewer::onDatabase);  
+    connect(ui.actionDDL, &QAction::triggered, this, &YlzSqlViewer::onDDL);
 
     status_bar = this->statusBar();
     status_bar->setGeometry(this->x(), this->height() - 30, this->width(), 30);
@@ -65,4 +67,14 @@ void YlzSqlViewer::onMonitor()
     subWin->setWindowIcon(QIcon());
     traceView->show();
     status_bar->showMessage(tr("Monitor View"));
+}
+
+void YlzSqlViewer::onDDL()
+{
+    DDLView * ddlView = new DDLView(this);
+    QMdiSubWindow* subWin = ui.mdiArea->addSubWindow(ddlView);
+    subWin->setAttribute(Qt::WA_DeleteOnClose);
+    subWin->setWindowIcon(QIcon());
+    ddlView->show();
+    status_bar->showMessage(tr("DDL View"));
 }

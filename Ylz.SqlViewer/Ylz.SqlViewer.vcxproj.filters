@@ -35,6 +35,15 @@
     <ClCompile Include="CopyableTableView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DbContext.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DDLView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DbConnection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Resource Files">
@@ -91,6 +100,9 @@
     <QtMoc Include="CopyableTableView.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="DDLView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="YlzSqlViewer.ui">
@@ -103,6 +115,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="DatabaseView.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="DDLView.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -122,6 +137,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MiniDump.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DbContext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DbConnection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
