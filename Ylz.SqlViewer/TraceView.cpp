@@ -48,7 +48,7 @@ void TraceView::initView()
     Highlighter *highlighter = new Highlighter(textEdit->document());
     textEdit->setReadOnly(true);
 
-    QVBoxLayout *vboxLayout = new QVBoxLayout();
+    QVBoxLayout *vboxLayout = new QVBoxLayout(this);
     vboxLayout->addWidget(toolbar);
     vboxLayout->addWidget(textEdit);
     setLayout(vboxLayout);

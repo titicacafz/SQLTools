@@ -107,6 +107,7 @@
     <ClCompile Include="HighLighter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MiniDump.cpp" />
+    <ClCompile Include="SearchEdit.cpp" />
     <ClCompile Include="SettingsView.cpp" />
     <ClCompile Include="SQLEdit.cpp" />
     <ClCompile Include="TraceView.cpp" />
@@ -127,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h" />
+    <QtMoc Include="SearchEdit.h" />
     <QtMoc Include="SQLEdit.h" />
     <QtMoc Include="TraceView.h" />
     <QtMoc Include="DatabaseView.h" />

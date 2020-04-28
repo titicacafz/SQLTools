@@ -41,7 +41,7 @@ void DatabaseView::initView()
     tableView->setAlternatingRowColors(true);
     errorEdit = new ErrorEdit(this);    
     errorEdit->setVisible(false);
-    QVBoxLayout *vboxLayout = new QVBoxLayout();
+    QVBoxLayout *vboxLayout = new QVBoxLayout(this);
     vboxLayout->addWidget(toolbar);
     vboxLayout->addWidget(textEdit);
     vboxLayout->addWidget(tableView);

@@ -12,5 +12,6 @@
         <file>Resources/monitor.ico</file>
         <file>Resources/conn_db.ico</file>
         <file>Resources/ddl.ico</file>
+        <file>Resources/search.ico</file>
     </qresource>
 </RCC>
