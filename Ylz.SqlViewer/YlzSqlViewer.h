@@ -4,6 +4,11 @@
 #include "ui_YlzSqlViewer.h"
 
 
+class DatabaseView;
+class TraceView;
+class DDLView;
+class QWidget;
+
 
 class YlzSqlViewer : public QMainWindow
 {
@@ -15,7 +20,11 @@ public:
 private:
     Ui::YlzSqlViewerClass ui;
  
-    QStatusBar * status_bar;    
+    QStatusBar * status_bar; 
+
+    DatabaseView * databaseView;
+    TraceView *traceView;
+    DDLView * ddlView;
 
     //打开监控
     void onMonitor();
@@ -32,4 +41,6 @@ private:
     //DDL
     void onDDL();
 
+    //显示子窗体
+    void onShowChild(QWidget *);
 };

@@ -9,26 +9,26 @@
         <translation type="unfinished">数据库对象查看器</translation>
     </message>
     <message>
-        <location filename="DDLView.cpp" line="35"/>
-        <location filename="DDLView.cpp" line="109"/>
+        <location filename="DDLView.cpp" line="36"/>
+        <location filename="DDLView.cpp" line="119"/>
         <source>Tables</source>
         <translation type="unfinished">表</translation>
     </message>
     <message>
-        <location filename="DDLView.cpp" line="36"/>
-        <location filename="DDLView.cpp" line="113"/>
+        <location filename="DDLView.cpp" line="37"/>
+        <location filename="DDLView.cpp" line="123"/>
         <source>Views</source>
         <translation type="unfinished">视图</translation>
     </message>
     <message>
-        <location filename="DDLView.cpp" line="37"/>
-        <location filename="DDLView.cpp" line="117"/>
+        <location filename="DDLView.cpp" line="38"/>
+        <location filename="DDLView.cpp" line="127"/>
         <source>Procedures</source>
         <translation type="unfinished">存储过程</translation>
     </message>
     <message>
-        <location filename="DDLView.cpp" line="38"/>
-        <location filename="DDLView.cpp" line="121"/>
+        <location filename="DDLView.cpp" line="39"/>
+        <location filename="DDLView.cpp" line="131"/>
         <source>Functions</source>
         <translation type="unfinished">函数</translation>
     </message>
@@ -98,6 +98,15 @@
         <location filename="DatabaseView.cpp" line="89"/>
         <source>Only run select stament!</source>
         <translation type="unfinished">仅能运行查询（select）语句！</translation>
+    </message>
+</context>
+<context>
+    <name>SearchEdit</name>
+    <message>
+        <location filename="SearchEdit.cpp" line="12"/>
+        <location filename="SearchEdit.cpp" line="15"/>
+        <source>Search</source>
+        <translation type="unfinished">搜索</translation>
     </message>
 </context>
 <context>
@@ -263,7 +272,7 @@
     <message>
         <location filename="YlzSqlViewer.ui" line="157"/>
         <source>DDL</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">数据库对象</translation>
     </message>
 </context>
 </TS>

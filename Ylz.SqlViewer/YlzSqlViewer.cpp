@@ -11,7 +11,10 @@
 
 
 YlzSqlViewer::YlzSqlViewer(QWidget *parent)
-    : QMainWindow(parent)
+    : QMainWindow(parent),
+    databaseView(nullptr),
+    traceView(nullptr),
+    ddlView(nullptr)
 {
     QIcon icon(":/YlzSqlViewer/Resources/app.ico");
     this->setWindowIcon(icon);
@@ -28,7 +31,8 @@ YlzSqlViewer::YlzSqlViewer(QWidget *parent)
     connect(ui.actionDDL, &QAction::triggered, this, &YlzSqlViewer::onDDL);
 
     status_bar = this->statusBar();
-    status_bar->setGeometry(this->x(), this->height() - 30, this->width(), 30);
+    status_bar->setGeometry(this->x(), this->height() - 30, this->width(), 30);          
+
 }
 
 void YlzSqlViewer::onSettings()
@@ -49,7 +53,7 @@ void YlzSqlViewer::onLogDownload()
 
 //数据库查看界面
 void YlzSqlViewer::onDatabase()
-{
+{    
     DatabaseView * databaseView = new DatabaseView(this);
     QMdiSubWindow *subWin = ui.mdiArea->addSubWindow(databaseView);
     subWin->setAttribute(Qt::WA_DeleteOnClose);
@@ -77,4 +81,10 @@ void YlzSqlViewer::onDDL()
     subWin->setWindowIcon(QIcon());
     ddlView->show();
     status_bar->showMessage(tr("DDL View"));
+}
+
+void YlzSqlViewer::onShowChild(QWidget *)
+{
+    QList<QMdiSubWindow *> subWindows = ui.mdiArea->subWindowList();
+    
 }

@@ -100,6 +100,9 @@ void DDLView::initView()
     hboxLayout->addLayout(vboxLayout);
     hboxLayout->addWidget(textEdit);
     hboxLayout->addWidget(tableView);
+    hboxLayout->setStretchFactor(vboxLayout, 1);
+    hboxLayout->setStretchFactor(textEdit, 2);
+    hboxLayout->setStretchFactor(tableView, 2);
     setLayout(hboxLayout);
 
     connect(treeView->selectionModel(), &QItemSelectionModel::currentChanged, this, &DDLView::onCurrentChanged);
