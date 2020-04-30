@@ -37,7 +37,6 @@ YlzSqlViewer::YlzSqlViewer(QWidget *parent)
 
 void YlzSqlViewer::onSettings()
 {
-    //打开配置文件  
     SettingsView * settingView = new SettingsView(this);
     settingView->setFeatures(QDockWidget::AllDockWidgetFeatures);
     addDockWidget(Qt::RightDockWidgetArea, settingView);
@@ -54,10 +53,13 @@ void YlzSqlViewer::onLogDownload()
 //数据库查看界面
 void YlzSqlViewer::onDatabase()
 {    
-    DatabaseView * databaseView = new DatabaseView(this);
-    QMdiSubWindow *subWin = ui.mdiArea->addSubWindow(databaseView);
-    subWin->setAttribute(Qt::WA_DeleteOnClose);
-    subWin->setWindowIcon(QIcon());
+    if (databaseView == nullptr)
+    {
+        databaseView = new DatabaseView(this);
+        QMdiSubWindow *subWin = ui.mdiArea->addSubWindow(databaseView);
+        subWin->setAttribute(Qt::WA_DeleteOnClose);
+        subWin->setWindowIcon(QIcon());
+    }
     databaseView->show();
     status_bar->showMessage(tr("Database View"));
 }
@@ -75,16 +77,14 @@ void YlzSqlViewer::onMonitor()
 
 void YlzSqlViewer::onDDL()
 {
-    DDLView * ddlView = new DDLView(this);
-    QMdiSubWindow* subWin = ui.mdiArea->addSubWindow(ddlView);
-    subWin->setAttribute(Qt::WA_DeleteOnClose);
-    subWin->setWindowIcon(QIcon());
+    if (ddlView == nullptr) {
+        ddlView = new DDLView(this);
+        QMdiSubWindow* subWin = ui.mdiArea->addSubWindow(ddlView);
+        subWin->setAttribute(Qt::WA_DeleteOnClose);
+        subWin->setWindowIcon(QIcon());
+    }
+            
     ddlView->show();
-    status_bar->showMessage(tr("DDL View"));
+    status_bar->showMessage(tr("DDL View"));    
 }
 
-void YlzSqlViewer::onShowChild(QWidget *)
-{
-    QList<QMdiSubWindow *> subWindows = ui.mdiArea->subWindowList();
-    
-}

@@ -7,7 +7,7 @@
 class DatabaseView;
 class TraceView;
 class DDLView;
-class QWidget;
+class QMdiSubWindow;
 
 
 class YlzSqlViewer : public QMainWindow
@@ -39,8 +39,5 @@ private:
     void onDatabase();
 
     //DDL
-    void onDDL();
-
-    //ÏÔÊ¾×Ó´°Ìå
-    void onShowChild(QWidget *);
+    void onDDL();    
 };
