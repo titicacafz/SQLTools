@@ -8,7 +8,7 @@ SettingsView::SettingsView(QWidget *parent)
 {
     ui.setupUi(this);
     setMinimumWidth(600);
-    connect(ui.btn_save, &QAbstractButton::clicked, this, &SettingsView::onSave);
+    connect(ui.btn_save, &QAbstractButton::clicked, this, &SettingsView::on_save);
     load();
 }
 
@@ -35,7 +35,7 @@ void SettingsView::load()
     }
 }
 
-void SettingsView::onSave()
+void SettingsView::on_save()
 {
     QString path = QCoreApplication::applicationDirPath() + "/setting.txt";
     QString displayString;

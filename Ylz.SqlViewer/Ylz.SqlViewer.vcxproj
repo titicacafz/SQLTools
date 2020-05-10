@@ -102,7 +102,7 @@
     <ClCompile Include="DatabaseView.cpp" />
     <ClCompile Include="DbConnection.cpp" />
     <ClCompile Include="DbContext.cpp" />
-    <ClCompile Include="DDLView.cpp" />
+    <ClCompile Include="DdlView.cpp" />
     <ClCompile Include="ErrorEdit.cpp" />
     <ClCompile Include="HighLighter.cpp" />
     <ClCompile Include="main.cpp" />
@@ -110,12 +110,12 @@
     <ClCompile Include="MiniDump.cpp" />
     <ClCompile Include="SearchEdit.cpp" />
     <ClCompile Include="SettingsView.cpp" />
-    <ClCompile Include="SQLEdit.cpp" />
+    <ClCompile Include="SqlEdit.cpp" />
     <ClCompile Include="TraceView.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="DatabaseView.ui" />
-    <QtUic Include="DDLView.ui" />
+    <QtUic Include="DdlView.ui" />
     <QtUic Include="SettingsView.ui" />
     <QtUic Include="TraceView.ui" />
     <QtUic Include="MainViewer.ui" />
@@ -125,8 +125,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h" />
+    <QtMoc Include="SqlEdit.h" />
     <QtMoc Include="SearchEdit.h" />
-    <QtMoc Include="SQLEdit.h" />
     <QtMoc Include="TraceView.h" />
     <QtMoc Include="DatabaseView.h" />
     <QtMoc Include="CustomSqlModel.h" />
@@ -134,7 +134,7 @@
     <QtMoc Include="CopyableTableView.h" />
     <ClInclude Include="DbConnection.h" />
     <ClInclude Include="DbContext.h" />
-    <QtMoc Include="DDLView.h" />
+    <QtMoc Include="DdlView.h" />
     <ClInclude Include="GlobalContext.h" />
     <QtMoc Include="HighLighter.h" />
     <QtMoc Include="MainView.h" />

@@ -1,16 +1,16 @@
-#include "SQLEdit.h"
+#include "SqlEdit.h"
 #include <QApplication>
 
-SQLEdit::SQLEdit(QWidget *parent)
+SqlEdit::SqlEdit(QWidget *parent)
     : QPlainTextEdit(parent)
 {
 }
 
-SQLEdit::~SQLEdit()
+SqlEdit::~SqlEdit()
 {
 }
 
-void SQLEdit::mousePressEvent(QMouseEvent * e)
+void SqlEdit::mousePressEvent(QMouseEvent * e)
 {        
     if (QApplication::keyboardModifiers() == Qt::ControlModifier &&
         e->button() == Qt::LeftButton)

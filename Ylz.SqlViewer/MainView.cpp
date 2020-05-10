@@ -12,9 +12,9 @@
 
 MainViewer::MainViewer(QWidget *parent)
     : QMainWindow(parent),
-    databaseView(nullptr),
-    traceView(nullptr),
-    ddlView(nullptr)
+    m_database_view(nullptr),
+    m_trace_view(nullptr),
+    m_ddl_view(nullptr)
 {
     QIcon icon(":/YlzSqlViewer/Resources/app.ico");
     this->setWindowIcon(icon);
@@ -24,18 +24,18 @@ MainViewer::MainViewer(QWidget *parent)
     ui.mdiArea->setViewMode(QMdiArea::TabbedView);
     ui.mdiArea->setTabsClosable(true);  //页面可以关闭
 
-    connect(ui.actionMonitor, &QAction::triggered, this, &MainViewer::onMonitor);
-    connect(ui.actionSettings, &QAction::triggered, this, &MainViewer::onSettings);
-    connect(ui.actionLogDownload, &QAction::triggered, this, &MainViewer::onLogDownload);
-    connect(ui.actionDatabase, &QAction::triggered, this, &MainViewer::onDatabase);  
-    connect(ui.actionDDL, &QAction::triggered, this, &MainViewer::onDDL);
+    connect(ui.actionMonitor, &QAction::triggered, this, &MainViewer::on_monitor);
+    connect(ui.actionSettings, &QAction::triggered, this, &MainViewer::on_settings);
+    connect(ui.actionLogDownload, &QAction::triggered, this, &MainViewer::on_log_download);
+    connect(ui.actionDatabase, &QAction::triggered, this, &MainViewer::on_database);  
+    connect(ui.actionDDL, &QAction::triggered, this, &MainViewer::on_ddl);
 
-    status_bar = this->statusBar();
-    status_bar->setGeometry(this->x(), this->height() - 30, this->width(), 30);          
+    m_status_bar = this->statusBar();
+    m_status_bar->setGeometry(this->x(), this->height() - 30, this->width(), 30);          
 
 }
 
-void MainViewer::onSettings()
+void MainViewer::on_settings()
 {
     SettingsView * settingView = new SettingsView(this);
     settingView->setFeatures(QDockWidget::AllDockWidgetFeatures);
@@ -43,7 +43,7 @@ void MainViewer::onSettings()
 }
 
 //日志下载
-void MainViewer::onLogDownload()
+void MainViewer::on_log_download()
 {
     Config & config = CONTEXT.config();
     QString fullLogUrl = config.get("fullLogUrl");
@@ -51,40 +51,40 @@ void MainViewer::onLogDownload()
 }
 
 //数据库查看界面
-void MainViewer::onDatabase()
+void MainViewer::on_database()
 {    
-    if (databaseView == nullptr)
+    if (m_database_view == nullptr)
     {
-        databaseView = new DatabaseView(this);
-        QMdiSubWindow *subWin = ui.mdiArea->addSubWindow(databaseView);
+        m_database_view = new DatabaseView(this);
+        QMdiSubWindow *subWin = ui.mdiArea->addSubWindow(m_database_view);
         subWin->setAttribute(Qt::WA_DeleteOnClose);
         subWin->setWindowIcon(QIcon());
     }
-    databaseView->show();
-    status_bar->showMessage(tr("Database View"));
+    m_database_view->show();
+    m_status_bar->showMessage(tr("Database View"));
 }
 
 //打开监控
-void MainViewer::onMonitor()
+void MainViewer::on_monitor()
 {
     TraceView *traceView = new TraceView(this);
     QMdiSubWindow *subWin = ui.mdiArea->addSubWindow(traceView);
     subWin->setAttribute(Qt::WA_DeleteOnClose);
     subWin->setWindowIcon(QIcon());
     traceView->show();
-    status_bar->showMessage(tr("Monitor View"));
+    m_status_bar->showMessage(tr("Monitor View"));
 }
 
-void MainViewer::onDDL()
+void MainViewer::on_ddl()
 {
-    if (ddlView == nullptr) {
-        ddlView = new DDLView(this);
-        QMdiSubWindow* subWin = ui.mdiArea->addSubWindow(ddlView);
+    if (m_ddl_view == nullptr) {
+        m_ddl_view = new DdlView(this);
+        QMdiSubWindow* subWin = ui.mdiArea->addSubWindow(m_ddl_view);
         subWin->setAttribute(Qt::WA_DeleteOnClose);
         subWin->setWindowIcon(QIcon());
     }
             
-    ddlView->show();
-    status_bar->showMessage(tr("DDL View"));    
+    m_ddl_view->show();
+    m_status_bar->showMessage(tr("DDL View"));    
 }
 

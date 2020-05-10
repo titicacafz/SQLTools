@@ -1,27 +1,27 @@
 #pragma once
 
 #include <QWidget>
-#include "ui_DDLView.h"
+#include "ui_DdlView.h"
 
 class QTreeView;
-class SQLEdit;
+class SqlEdit;
 class CopyableTableView;
 class QStandardItemModel;
 class SearchEdit;
 
-class DDLView : public QWidget
+class DdlView : public QWidget
 {
     Q_OBJECT
 
 public:
-    DDLView(QWidget *parent = Q_NULLPTR);
-    ~DDLView();
+    DdlView(QWidget *parent = Q_NULLPTR);
+    ~DdlView();
 
 private:
     Ui::DDLView ui;
 
     QTreeView *m_tree_view;
-    SQLEdit * m_text_edit;
+    SqlEdit * m_text_edit;
     CopyableTableView * m_table_view;
     QStandardItemModel* m_model;
     SearchEdit * m_search_edit;

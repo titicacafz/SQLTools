@@ -17,5 +17,5 @@ private:
 
     void load();
 
-    void onSave();
+    void on_save();
 };

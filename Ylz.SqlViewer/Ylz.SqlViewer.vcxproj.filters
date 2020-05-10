@@ -17,9 +17,6 @@
     <ClCompile Include="CustomSqlModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SQLEdit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="HighLighter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -35,9 +32,6 @@
     <ClCompile Include="DbContext.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DDLView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="DbConnection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -45,6 +39,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MainView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DdlView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SqlEdit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -88,9 +88,6 @@
     <QtMoc Include="CustomSqlModel.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="SQLEdit.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="HighLighter.h">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -100,13 +97,16 @@
     <QtMoc Include="CopyableTableView.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="DDLView.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="SearchEdit.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="MainView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="DdlView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="SqlEdit.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -120,10 +120,10 @@
     <QtUic Include="DatabaseView.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="DDLView.ui">
+    <QtUic Include="MainViewer.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="MainViewer.ui">
+    <QtUic Include="DdlView.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

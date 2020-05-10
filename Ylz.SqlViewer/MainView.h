@@ -6,7 +6,7 @@
 
 class DatabaseView;
 class TraceView;
-class DDLView;
+class DdlView;
 class QMdiSubWindow;
 
 
@@ -20,24 +20,24 @@ public:
 private:
     Ui::YlzSqlViewerClass ui;
  
-    QStatusBar * status_bar; 
+    QStatusBar * m_status_bar; 
 
-    DatabaseView * databaseView;
-    TraceView *traceView;
-    DDLView * ddlView;
+    DatabaseView * m_database_view;
+    TraceView *m_trace_view;
+    DdlView * m_ddl_view;
 
     //打开监控
-    void onMonitor();
+    void on_monitor();
 
     //打开配置文件
-    void onSettings();
+    void on_settings();
 
     //日志下载
-    void onLogDownload();
+    void on_log_download();
 
     //数据库查看工具
-    void onDatabase();
+    void on_database();
 
     //DDL
-    void onDDL();    
+    void on_ddl();    
 };

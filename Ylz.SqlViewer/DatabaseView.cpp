@@ -32,7 +32,7 @@ void DatabaseView::init_view()
     toolbar->addAction(ui.actionConnectDb);
     toolbar->addAction(ui.actionRunSQL);
 
-    m_text_edit = new SQLEdit(this);
+    m_text_edit = new SqlEdit(this);
     Highlighter *highlighter = new Highlighter(m_text_edit->document());
     m_table_view = new CopyableTableView(this);
     m_table_view->setVisible(false);

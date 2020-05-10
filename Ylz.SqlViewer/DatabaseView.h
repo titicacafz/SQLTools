@@ -4,7 +4,7 @@
 #include <QSqlDatabase>
 #include "ui_DatabaseView.h"
 
-class SQLEdit;
+class SqlEdit;
 class ErrorEdit;
 class CopyableTableView;
 class QSqlDatabase;
@@ -20,7 +20,7 @@ public:
 private:
     Ui::DatabaseView ui;
 
-    SQLEdit * m_text_edit;
+    SqlEdit * m_text_edit;
     ErrorEdit * m_error_edit;
     CopyableTableView* m_table_view;
 

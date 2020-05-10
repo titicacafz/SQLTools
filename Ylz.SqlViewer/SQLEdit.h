@@ -2,13 +2,13 @@
 
 #include <QPlainTextEdit>
 
-class SQLEdit : public QPlainTextEdit
+class SqlEdit : public QPlainTextEdit
 {
     Q_OBJECT
 
 public:
-    SQLEdit(QWidget *parent);
-    ~SQLEdit();
+    SqlEdit(QWidget *parent);
+    ~SqlEdit();
 
 protected:
     virtual void mousePressEvent(QMouseEvent *event);

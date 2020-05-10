@@ -14,24 +14,24 @@
 #include "CustomSqlModel.h"
 #include "SearchEdit.h"
 
-DDLView::DDLView(QWidget *parent)
+DdlView::DdlView(QWidget *parent)
     : QWidget(parent)
 {
     ui.setupUi(this);
-    initView();
+    init_view();
 }
 
-DDLView::~DDLView()
+DdlView::~DdlView()
 {
 }
 
 //初始化界面
-void DDLView::initView()
+void DdlView::init_view()
 {
-    searchEdit = new SearchEdit(this);    
-    treeView = new QTreeView(this);
+    m_search_edit = new SearchEdit(this);    
+    m_tree_view = new QTreeView(this);
     
-    model = new QStandardItemModel(treeView);      
+    m_model = new QStandardItemModel(m_tree_view);      
 
     QStandardItem* tables = new QStandardItem(QString(tr("Tables")));
     QStandardItem* views = new QStandardItem(QString(tr("Views")));
@@ -70,23 +70,23 @@ void DDLView::initView()
             functions->appendRow(itemChild);
         }
     }
-    model->appendRow(tables);
-    model->appendRow(views);
-    model->appendRow(procedures);
-    model->appendRow(functions);
+    m_model->appendRow(tables);
+    m_model->appendRow(views);
+    m_model->appendRow(procedures);
+    m_model->appendRow(functions);
     
-    treeView->setModel(model);    
-    treeView->header()->hide();
-    treeView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_tree_view->setModel(m_model);    
+    m_tree_view->header()->hide();
+    m_tree_view->setEditTriggers(QAbstractItemView::NoEditTriggers);
     
-    textEdit = new SQLEdit(this);
-    Highlighter *highlighter = new Highlighter(textEdit->document());
-    tableView = new CopyableTableView(this);
-    tableView->setVisible(false);
-    tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    tableView->setSelectionBehavior(QAbstractItemView::SelectRows);//设置选中模式
-    tableView->setAlternatingRowColors(true);
-    tableView->setVisible(false);
+    m_text_edit = new SqlEdit(this);
+    Highlighter *highlighter = new Highlighter(m_text_edit->document());
+    m_table_view = new CopyableTableView(this);
+    m_table_view->setVisible(false);
+    m_table_view->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_table_view->setSelectionBehavior(QAbstractItemView::SelectRows);//设置选中模式
+    m_table_view->setAlternatingRowColors(true);
+    m_table_view->setVisible(false);
     
     
     //总体水平布局管理器
@@ -94,24 +94,24 @@ void DDLView::initView()
 
     //左侧垂直布局管理器
     QVBoxLayout *vboxLayout = new QVBoxLayout();
-    vboxLayout->addWidget(searchEdit);
-    vboxLayout->addWidget(treeView);
+    vboxLayout->addWidget(m_search_edit);
+    vboxLayout->addWidget(m_tree_view);
 
     hboxLayout->addLayout(vboxLayout);
-    hboxLayout->addWidget(textEdit);
-    hboxLayout->addWidget(tableView);
+    hboxLayout->addWidget(m_text_edit);
+    hboxLayout->addWidget(m_table_view);
     hboxLayout->setStretchFactor(vboxLayout, 1);
-    hboxLayout->setStretchFactor(textEdit, 2);
-    hboxLayout->setStretchFactor(tableView, 2);
+    hboxLayout->setStretchFactor(m_text_edit, 2);
+    hboxLayout->setStretchFactor(m_table_view, 2);
     setLayout(hboxLayout);
 
-    connect(treeView->selectionModel(), &QItemSelectionModel::currentChanged, this, &DDLView::onCurrentChanged);
-    connect(searchEdit, &QLineEdit::returnPressed, this, &DDLView::onReturnPressed);
+    connect(m_tree_view->selectionModel(), &QItemSelectionModel::currentChanged, this, &DdlView::on_current_changed);
+    connect(m_search_edit, &QLineEdit::returnPressed, this, &DdlView::on_return_pressed);
 }
 
-void DDLView::onCurrentChanged(const QModelIndex &current, const QModelIndex &previous)
+void DdlView::on_current_changed(const QModelIndex &current, const QModelIndex &previous)
 {
-    QStandardItem* item = model->itemFromIndex(current);
+    QStandardItem* item = m_model->itemFromIndex(current);
     if (item == nullptr)
         return;
     
@@ -121,29 +121,29 @@ void DDLView::onCurrentChanged(const QModelIndex &current, const QModelIndex &pr
 
     if (parent->text() == tr("Tables"))
     {
-        showTable(item->text());
+        show_table(item->text());
     }
     else if (parent->text() == tr("Views"))
     {
-        showView(item->text());
+        show_view(item->text());
     }
     else if (parent->text() == tr("Procedures"))
     {
-        showProcedure(item->text());
+        show_procedure(item->text());
     }
     else if (parent->text() == tr("Functions"))
     {
-        showFunction(item->text());
+        show_function(item->text());
     }
     else {
         //查DDL
-        tableView->setVisible(false);
-        textEdit->setVisible(true);
+        m_table_view->setVisible(false);
+        m_text_edit->setVisible(true);
     }
     
 }
 
-void DDLView::showTable(const QString & name)
+void DdlView::show_table(const QString & name)
 {
     //查表列等数据
     QString sql_text = "select "
@@ -158,7 +158,7 @@ void DDLView::showTable(const QString & name)
         " a.table_name = '" + name + "'"
         " and b.table_name = '" + name + "'"
         "and a.column_name = b.column_name";
-    tableView->setUpdatesEnabled(false);
+    m_table_view->setUpdatesEnabled(false);
     CustomSqlModel *model = new CustomSqlModel(this);
     model->setQuery(sql_text, DbConnection::database());
     QSqlError error = model->lastError();
@@ -166,87 +166,87 @@ void DDLView::showTable(const QString & name)
         ;
     }
     else {
-        tableView->setModel(model);
-        tableView->setStyleSheet("QTableView{background-color: rgb(250, 250, 250);"
+        m_table_view->setModel(model);
+        m_table_view->setStyleSheet("QTableView{background-color: rgb(250, 250, 250);"
             "alternate-background-color: rgb(234, 234, 234);}");//设置表格颜色
-        tableView->show();
-        tableView->setUpdatesEnabled(true);
+        m_table_view->show();
+        m_table_view->setUpdatesEnabled(true);
     }
-    tableView->setVisible(true);
-    textEdit->setVisible(false);
+    m_table_view->setVisible(true);
+    m_text_edit->setVisible(false);
 }
 
-void DDLView::showProcedure(const QString & name)
+void DdlView::show_procedure(const QString & name)
 {
-    textEdit->clear();
-    textEdit->appendPlainText("create or replace ");
+    m_text_edit->clear();
+    m_text_edit->appendPlainText("create or replace ");
     QString sql_text = "select text from all_source where name = '"+name+"' and type = 'PROCEDURE'";
     QSqlQuery query(DbConnection::database());
     query.exec(sql_text);
     while (query.next())
     {
-        textEdit->appendPlainText(query.value(0).toString());
+        m_text_edit->appendPlainText(query.value(0).toString());
     }
-    textEdit->moveCursor(QTextCursor::Start, QTextCursor::MoveAnchor);
+    m_text_edit->moveCursor(QTextCursor::Start, QTextCursor::MoveAnchor);
 
-    tableView->setVisible(false);
-    textEdit->setVisible(true);
+    m_table_view->setVisible(false);
+    m_text_edit->setVisible(true);
 }
 
-void DDLView::showFunction(const QString & name)
+void DdlView::show_function(const QString & name)
 {
-    textEdit->clear();
-    textEdit->appendPlainText("create or replace ");
+    m_text_edit->clear();
+    m_text_edit->appendPlainText("create or replace ");
     QString sql_text = "select text from all_source where name = '" + name + "' and type = 'FUNCTION'";
     QSqlQuery query(DbConnection::database());
     query.exec(sql_text);
     while (query.next())
     {
-        textEdit->appendPlainText(query.value(0).toString());
+        m_text_edit->appendPlainText(query.value(0).toString());
     }
-    textEdit->moveCursor(QTextCursor::Start, QTextCursor::MoveAnchor);
+    m_text_edit->moveCursor(QTextCursor::Start, QTextCursor::MoveAnchor);
 
-    tableView->setVisible(false);
-    textEdit->setVisible(true);
+    m_table_view->setVisible(false);
+    m_text_edit->setVisible(true);
 }
 
-void DDLView::showView(const QString & name)
+void DdlView::show_view(const QString & name)
 {
-    textEdit->clear();
-    textEdit->appendPlainText("create or replace view "+name+" as ");
+    m_text_edit->clear();
+    m_text_edit->appendPlainText("create or replace view "+name+" as ");
     QString sql_text = "select text from all_views where view_name='"+name+"'";
     QSqlQuery query(DbConnection::database());
     query.exec(sql_text);
     while (query.next())
     {
-        textEdit->appendPlainText(query.value(0).toString());
+        m_text_edit->appendPlainText(query.value(0).toString());
     }
-    textEdit->moveCursor(QTextCursor::Start, QTextCursor::MoveAnchor);
-    tableView->setVisible(false);
-    textEdit->setVisible(true);
+    m_text_edit->moveCursor(QTextCursor::Start, QTextCursor::MoveAnchor);
+    m_table_view->setVisible(false);
+    m_text_edit->setVisible(true);
 }
 
-void DDLView::onReturnPressed()
+void DdlView::on_return_pressed()
 {
     //统一转大写
-    QString toSearch = searchEdit->text().trimmed().toUpper();
+    QString toSearch = m_search_edit->text().trimmed().toUpper();
     //
     if (toSearch.isEmpty())
         return;
 
-    treeView->collapseAll(); 
+    m_tree_view->collapseAll(); 
     //夫节点
-    for (int i = 0; i < model->rowCount(); i++)
+    for (int i = 0; i < m_model->rowCount(); i++)
     {
-        QStandardItem *item = model->item(i);          
+        QStandardItem *item = m_model->item(i);          
         //子节点
         for (int j = 0; j < item->rowCount(); j++)
         {
             QStandardItem * childitem = item->child(j);            
             if (childitem->text() == toSearch)
             {
-                treeView->expand(item->index());
-                QItemSelectionModel * selectModel= treeView->selectionModel();
+                m_tree_view->expand(item->index());
+                QItemSelectionModel * selectModel= m_tree_view->selectionModel();
                 selectModel->select(childitem->index(), QItemSelectionModel::Select);
                 emit selectModel->currentChanged(childitem->index(), childitem->index());
                 return;
