@@ -9,17 +9,17 @@ int main(int argc, char *argv[])
     MiniDump::EnableAutoDump(true);
     
     //Qt程序对象
-    QApplication a(argc, argv);
+    QApplication app(argc, argv);
 
     //语言翻译
     QTranslator translator;
     translator.load(QCoreApplication::applicationDirPath()+"/ylz.sqlviewer_zh.qm");
-    a.installTranslator(&translator);
+    app.installTranslator(&translator);
     
     //主窗体对象
-    MainViewer w;
-    w.show();
+    MainViewer win;
+    win.show();
     
     //运行程序
-    return a.exec();
+    return app.exec();
 }

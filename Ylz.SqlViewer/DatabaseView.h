@@ -20,21 +20,21 @@ public:
 private:
     Ui::DatabaseView ui;
 
-    SQLEdit * textEdit;
-    ErrorEdit * errorEdit;
-    CopyableTableView* tableView;
+    SQLEdit * m_text_edit;
+    ErrorEdit * m_error_edit;
+    CopyableTableView* m_table_view;
 
     //初始化界面
-    void initView();
+    void init_view();
 
     //事件挂接
-    void initEvent();
+    void init_event();
 
     //连接数据库
-    void onConnectDb();
+    void on_connect_db();
 
 
     //运行SQL
-    void onRunSql();
+    void on_run_sql();
 
 };

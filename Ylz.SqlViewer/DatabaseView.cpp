@@ -18,64 +18,64 @@ DatabaseView::DatabaseView(QWidget *parent)
     : QWidget(parent)
 {
     ui.setupUi(this);
-    initView();
-    initEvent();
+    init_view();
+    init_event();
 }
 
 DatabaseView::~DatabaseView()
 {
 }
 
-void DatabaseView::initView()
+void DatabaseView::init_view()
 {
     QToolBar * toolbar = new QToolBar(this);
     toolbar->addAction(ui.actionConnectDb);
     toolbar->addAction(ui.actionRunSQL);
 
-    textEdit = new SQLEdit(this);
-    Highlighter *highlighter = new Highlighter(textEdit->document());
-    tableView = new CopyableTableView(this);
-    tableView->setVisible(false);
-    tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    tableView->setSelectionBehavior(QAbstractItemView::SelectRows);//设置选中模式
-    tableView->setAlternatingRowColors(true);
-    errorEdit = new ErrorEdit(this);    
-    errorEdit->setVisible(false);
+    m_text_edit = new SQLEdit(this);
+    Highlighter *highlighter = new Highlighter(m_text_edit->document());
+    m_table_view = new CopyableTableView(this);
+    m_table_view->setVisible(false);
+    m_table_view->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_table_view->setSelectionBehavior(QAbstractItemView::SelectRows);//设置选中模式
+    m_table_view->setAlternatingRowColors(true);
+    m_error_edit = new ErrorEdit(this);    
+    m_error_edit->setVisible(false);
     QVBoxLayout *vboxLayout = new QVBoxLayout(this);
     vboxLayout->addWidget(toolbar);
-    vboxLayout->addWidget(textEdit);
-    vboxLayout->addWidget(tableView);
-    vboxLayout->addWidget(errorEdit);
+    vboxLayout->addWidget(m_text_edit);
+    vboxLayout->addWidget(m_table_view);
+    vboxLayout->addWidget(m_error_edit);
     setLayout(vboxLayout);    
 }
 
-void DatabaseView::initEvent()
+void DatabaseView::init_event()
 {
-    connect(ui.actionConnectDb, &QAction::triggered, this, &DatabaseView::onConnectDb);
-    connect(ui.actionRunSQL, &QAction::triggered, this, &DatabaseView::onRunSql);    
+    connect(ui.actionConnectDb, &QAction::triggered, this, &DatabaseView::on_connect_db);
+    connect(ui.actionRunSQL, &QAction::triggered, this, &DatabaseView::on_run_sql);    
 }
 
-void DatabaseView::onConnectDb()
+void DatabaseView::on_connect_db()
 {    
     if (DbConnection::database().isOpen()) {
-        errorEdit->setPlainText(tr("Connect to databse successed!"));
-        errorEdit->setVisible(true);
-        tableView->setVisible(false);        
+        m_error_edit->setPlainText(tr("Connect to databse successed!"));
+        m_error_edit->setVisible(true);
+        m_table_view->setVisible(false);        
         //CONTEXT.dbContext.load(db);
     }
     else {
-        errorEdit->setPlainText(tr("Connect to databse failed!"));
-        errorEdit->setVisible(true);
-        tableView->setVisible(false);
+        m_error_edit->setPlainText(tr("Connect to databse failed!"));
+        m_error_edit->setVisible(true);
+        m_table_view->setVisible(false);
     }
 }
 
-void DatabaseView::onRunSql()
+void DatabaseView::on_run_sql()
 {
-    QString sql_text = textEdit->textCursor().selectedText().trimmed().toUpper();
+    QString sql_text = m_text_edit->textCursor().selectedText().trimmed().toUpper();
     if (sql_text.length() <= 0)
     {
-        sql_text = textEdit->toPlainText();
+        sql_text = m_text_edit->toPlainText();
     }
     if (sql_text.length() <= 0)
     {
@@ -93,7 +93,7 @@ void DatabaseView::onRunSql()
     //执行sql
     if (!DbConnection::database().isOpen())
     {
-        onConnectDb();
+        on_connect_db();
     }
 
     if (!DbConnection::database().isOpen())
@@ -102,24 +102,24 @@ void DatabaseView::onRunSql()
     }
 
     //
-    tableView->setUpdatesEnabled(false);
+    m_table_view->setUpdatesEnabled(false);
     CustomSqlModel *model = new CustomSqlModel(this);
     model->setQuery(sql_text, DbConnection::database());
     QSqlError error = model->lastError();
     if (error.type() != QSqlError::NoError)
     {
-        errorEdit->setPlainText(error.text());
-        errorEdit->setVisible(true);
-        tableView->setVisible(false);
+        m_error_edit->setPlainText(error.text());
+        m_error_edit->setVisible(true);
+        m_table_view->setVisible(false);
     }
     else {
-        errorEdit->setVisible(false);
-        tableView->setModel(model);
+        m_error_edit->setVisible(false);
+        m_table_view->setModel(model);
         //ui.tableView->horizontalHeader()->setStyleSheet("QHeaderView::section{background:rgb(255,228,225);color: black;}");
-        tableView->setStyleSheet("QTableView{background-color: rgb(250, 250, 250);"
+        m_table_view->setStyleSheet("QTableView{background-color: rgb(250, 250, 250);"
             "alternate-background-color: rgb(234, 234, 234);}");//设置表格颜色
-        tableView->show();
-        tableView->setUpdatesEnabled(true);
+        m_table_view->show();
+        m_table_view->setUpdatesEnabled(true);
     }
     
 }
