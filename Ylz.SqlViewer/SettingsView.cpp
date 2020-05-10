@@ -45,7 +45,7 @@ void SettingsView::onSave()
         out << ui.textSettings->document()->toPlainText();        
         out.flush();
         file.close();
-        Config & config = CONTEXT.m_config;
+        Config & config = CONTEXT.config();
         config.load();
     }
     close();

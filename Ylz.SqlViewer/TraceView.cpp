@@ -72,7 +72,7 @@ void TraceView::init_event()
 //¿ªÊ¼¼à¿Ø
 void TraceView::on_start()
 {
-    Config & config = CONTEXT.m_config;
+    Config & config = CONTEXT.config();
     QString server = config.get("server");
     if (server.isEmpty())
     {
@@ -179,7 +179,7 @@ void TraceView::on_update(QNetworkReply *reply)
 void TraceView::on_timer()
 {
     m_timer->stop();
-    Config & config = CONTEXT.m_config;
+    Config & config = CONTEXT.config();
     QString server = config.get("server");
     if (server.isEmpty())
     {

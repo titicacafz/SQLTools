@@ -41,7 +41,7 @@ void DDLView::initView()
     QSqlDatabase db = DbConnection::database();
     if (db.isOpen())
     {
-        DbContext & dbContext = CONTEXT.m_db_context;
+        DbContext & dbContext = CONTEXT.db_context();
         dbContext.load(db);
 
         for (QList<QString>::iterator iter = dbContext.user_tables.begin(); iter != dbContext.user_tables.end(); iter++)

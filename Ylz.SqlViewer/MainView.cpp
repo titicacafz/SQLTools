@@ -45,7 +45,7 @@ void MainViewer::onSettings()
 //хуж╬обть
 void MainViewer::onLogDownload()
 {
-    Config & config = CONTEXT.m_config;
+    Config & config = CONTEXT.config();
     QString fullLogUrl = config.get("fullLogUrl");
     QDesktopServices::openUrl(fullLogUrl);
 }

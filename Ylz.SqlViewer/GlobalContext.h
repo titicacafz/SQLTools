@@ -15,6 +15,17 @@ public:
         return context;
     }    
 
+    Config & config()
+    {
+        return m_config;
+    }
+
+    DbContext & db_context()
+    {
+        return m_db_context;
+    }
+
+private:
     //ÅäÖÃÎÄ¼ş
     Config m_config;
 

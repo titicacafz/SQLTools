@@ -3,7 +3,7 @@
 
 QSqlDatabase DbConnection::database()
 {
-    Config& config = CONTEXT.m_config;
+    Config& config = CONTEXT.config();
     if (!QSqlDatabase::contains("hisdb")) {
         QSqlDatabase db = QSqlDatabase::addDatabase(config.get("db_driver"), "hisdb");//QOCI
         db.setPort(config.get("db_port").toInt());
