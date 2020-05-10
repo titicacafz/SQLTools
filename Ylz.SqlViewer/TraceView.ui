@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TraceView</class>
+ <widget class="QWidget" name="TraceView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TraceView</string>
+  </property>
+  <action name="actionStart">
+   <property name="icon">
+    <iconset resource="YlzSqlViewer.qrc">
+     <normaloff>:/YlzSqlViewer/Resources/start.ico</normaloff>:/YlzSqlViewer/Resources/start.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Start</string>
+   </property>
+   <property name="toolTip">
+    <string>Start</string>
+   </property>
+  </action>
+  <action name="actionStop">
+   <property name="icon">
+    <iconset resource="YlzSqlViewer.qrc">
+     <normaloff>:/YlzSqlViewer/Resources/stop.ico</normaloff>:/YlzSqlViewer/Resources/stop.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Stop</string>
+   </property>
+   <property name="toolTip">
+    <string>Stop</string>
+   </property>
+  </action>
+  <action name="actionClear">
+   <property name="icon">
+    <iconset resource="YlzSqlViewer.qrc">
+     <normaloff>:/YlzSqlViewer/Resources/clear.ico</normaloff>:/YlzSqlViewer/Resources/clear.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Clear</string>
+   </property>
+   <property name="toolTip">
+    <string>Clear</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="YlzSqlViewer.qrc">
+     <normaloff>:/YlzSqlViewer/Resources/save.ico</normaloff>:/YlzSqlViewer/Resources/save.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="toolTip">
+    <string>Save</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="YlzSqlViewer.qrc"/>
+ </resources>
+ <connections/>
+</ui>
