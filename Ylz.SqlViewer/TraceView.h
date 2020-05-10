@@ -19,37 +19,37 @@ private:
     Ui::TraceView ui;
 
     //显示的日志的编辑框
-    QPlainTextEdit * textEdit;
+    QPlainTextEdit * m_text_edit;
 
-    QTimer * timer;
+    QTimer * m_timer;
 
-    long long position;
+    long long m_position;
 
-    QNetworkAccessManager *manager;
+    QNetworkAccessManager * m_manager;
     
 
     //初始化界面
-    void initView();
+    void init_view();
 
     //事件挂接
-    void initEvent();
+    void init_event();
 
 
     //开始监控
-    void onStart();
+    void on_start();
 
     //停止监控
-    void onStop();
+    void on_stop();
 
     //清空显示日志
-    void onClear();
+    void on_clear();
 
     //保存
-    void onSave();
+    void on_save();
 
     //http接口交互完成
-    void onUpdate(QNetworkReply *reply);
+    void on_update(QNetworkReply *reply);
 
     //定时器，先这么用
-    void onTimer();
+    void on_timer();
 };

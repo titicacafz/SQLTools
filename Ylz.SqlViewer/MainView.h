@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QtWidgets/QMainWindow>
-#include "ui_YlzSqlViewer.h"
+#include "ui_MainViewer.h"
 
 
 class DatabaseView;
@@ -10,12 +10,12 @@ class DDLView;
 class QMdiSubWindow;
 
 
-class YlzSqlViewer : public QMainWindow
+class MainViewer : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    YlzSqlViewer(QWidget *parent = Q_NULLPTR);
+    MainViewer(QWidget *parent = Q_NULLPTR);
 
 private:
     Ui::YlzSqlViewerClass ui;

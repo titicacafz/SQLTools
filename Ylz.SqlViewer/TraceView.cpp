@@ -20,22 +20,22 @@ TraceView::TraceView(QWidget *parent)
     : QWidget(parent)
 {
     ui.setupUi(this);
-    initView();
-    initEvent();
+    init_view();
+    init_event();
 }
 
 TraceView::~TraceView()
 {
 }
 
-void TraceView::initView()
+void TraceView::init_view()
 {
 
-    position = 0;
+    m_position = 0;
     //
-    manager = new QNetworkAccessManager(this);
+    m_manager = new QNetworkAccessManager(this);
 
-    timer = new QTimer(this);
+    m_timer = new QTimer(this);
 
     QToolBar * toolbar = new QToolBar(this);
     toolbar->setMaximumHeight(40);
@@ -44,35 +44,35 @@ void TraceView::initView()
     toolbar->addAction(ui.actionClear);
     toolbar->addAction(ui.actionSave);
 
-    textEdit = new QPlainTextEdit(this);
-    Highlighter *highlighter = new Highlighter(textEdit->document());
-    textEdit->setReadOnly(true);
+    m_text_edit = new QPlainTextEdit(this);
+    Highlighter *highlighter = new Highlighter(m_text_edit->document());
+    m_text_edit->setReadOnly(true);
 
     QVBoxLayout *vboxLayout = new QVBoxLayout(this);
     vboxLayout->addWidget(toolbar);
-    vboxLayout->addWidget(textEdit);
+    vboxLayout->addWidget(m_text_edit);
     setLayout(vboxLayout);
 }
 
-void TraceView::initEvent()
+void TraceView::init_event()
 {
     //工具栏相关挂接
-    connect(ui.actionStart, &QAction::triggered, this, &TraceView::onStart);
-    connect(ui.actionStop, &QAction::triggered, this, &TraceView::onStop);
-    connect(ui.actionClear, &QAction::triggered, this, &TraceView::onClear);
-    connect(ui.actionSave, &QAction::triggered, this, &TraceView::onSave);
+    connect(ui.actionStart, &QAction::triggered, this, &TraceView::on_start);
+    connect(ui.actionStop, &QAction::triggered, this, &TraceView::on_stop);
+    connect(ui.actionClear, &QAction::triggered, this, &TraceView::on_clear);
+    connect(ui.actionSave, &QAction::triggered, this, &TraceView::on_save);
 
     //网络相关挂接
-    connect(manager, &QNetworkAccessManager::finished, this, &TraceView::onUpdate);;   //GET结束读取信息
+    connect(m_manager, &QNetworkAccessManager::finished, this, &TraceView::on_update);;   //GET结束读取信息
 
     //定时器
-    connect(timer, &QTimer::timeout, this, &TraceView::onTimer);
+    connect(m_timer, &QTimer::timeout, this, &TraceView::on_timer);
 }
 
 //开始监控
-void TraceView::onStart()
+void TraceView::on_start()
 {
-    Config & config = CONTEXT.config;
+    Config & config = CONTEXT.m_config;
     QString server = config.get("server");
     if (server.isEmpty())
     {
@@ -81,32 +81,33 @@ void TraceView::onStart()
     }
     ui.actionStart->setEnabled(false);
     ui.actionStop->setEnabled(true);    
-    timer->start(500);
+    m_timer->start(500);
 }
 
 //停止监控
-void TraceView::onStop()
+void TraceView::on_stop()
 {    
     ui.actionStart->setEnabled(true);
     ui.actionStop->setEnabled(false);
-    position = 0;
-    timer->stop();
+    m_position = 0;
+    m_timer->stop();
 }
 
 //清空显示日志
-void TraceView::onClear()
+void TraceView::on_clear()
 {
-    textEdit->clear();
-    textEdit->setPlainText("");
+    m_text_edit->clear();
+    m_text_edit->setPlainText("");
 }
 
 //保存
-void TraceView::onSave()
+void TraceView::on_save()
 {
-    if (textEdit->toPlainText().size() <= 0)
+    if (m_text_edit->toPlainText().size() <= 0)
     {
         return;
     }
+
     QString tmp = QCoreApplication::applicationDirPath() + "/tmp.txt";
     QFile file(tmp);//文件命名
     if (!file.open(QFile::WriteOnly | QFile::Text))     //检测文件是否打开
@@ -115,14 +116,14 @@ void TraceView::onSave()
         return;
     }
     QTextStream out(&file);                 //分行写入文件
-    out << textEdit->toPlainText();
+    out << m_text_edit->toPlainText();
 
     //提示保存成功
     QDesktopServices::openUrl(QUrl::fromLocalFile(tmp));
 }
 
 //http接口交互完成
-void TraceView::onUpdate(QNetworkReply *reply)
+void TraceView::on_update(QNetworkReply *reply)
 {
     try
     {
@@ -141,9 +142,9 @@ void TraceView::onUpdate(QNetworkReply *reply)
 
         QString charset = reply->header(QNetworkRequest::ContentTypeHeader).toString();
 
-        if (position < new_position)
+        if (m_position < new_position)
         {
-            position = new_position;
+            m_position = new_position;
 
             QByteArray logs = reply->readAll();
 
@@ -152,17 +153,17 @@ void TraceView::onUpdate(QNetworkReply *reply)
                 //界面更新
                 if (charset.toLower().indexOf("utf-8") > 0)
                 {
-                    textEdit->appendPlainText(QString::fromUtf8(logs));
+                    m_text_edit->appendPlainText(QString::fromUtf8(logs));
                 }
                 else
                 {
-                    textEdit->appendPlainText(QString::fromLocal8Bit(logs));
+                    m_text_edit->appendPlainText(QString::fromLocal8Bit(logs));
                 }
 
-                QTextCursor cursor = textEdit->textCursor();
+                QTextCursor cursor = m_text_edit->textCursor();
                 //将光标移动到文本结尾，便于删除字符测试，实际上并不需要该步骤            
                 cursor.movePosition(QTextCursor::End);
-                textEdit->setTextCursor(cursor);                
+                m_text_edit->setTextCursor(cursor);                
             }
         }
     }
@@ -171,14 +172,14 @@ void TraceView::onUpdate(QNetworkReply *reply)
         qDebug(e.what());
     }
     reply->deleteLater();
-    timer->start(500);
+    m_timer->start(500);
 }
 
 //定时器，先这么用
-void TraceView::onTimer()
+void TraceView::on_timer()
 {
-    timer->stop();
-    Config & config = CONTEXT.config;
+    m_timer->stop();
+    Config & config = CONTEXT.m_config;
     QString server = config.get("server");
     if (server.isEmpty())
     {
@@ -188,10 +189,11 @@ void TraceView::onTimer()
     QUrl url(server); //读取url
 
     QUrlQuery postData;
-    if (position > 0)
+    if (m_position > 0)
     {
-        postData.addQueryItem("position", QString::number(position, 10));
+        postData.addQueryItem("position", QString::number(m_position, 10));
     }
+
     QString remoteIp = config.get("remoteIp");
     if (!remoteIp.isEmpty())
     {
@@ -199,5 +201,5 @@ void TraceView::onTimer()
     }
     url.setQuery(postData);
     QNetworkRequest request(url);
-    manager->get(request);
+    m_manager->get(request);
 }

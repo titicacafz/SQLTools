@@ -16,10 +16,10 @@ public:
     }    
 
     //≈‰÷√Œƒº˛
-    Config config;
+    Config m_config;
 
     //
-    DbContext dbContext;
+    DbContext m_db_context;
 };
 
 #define  CONTEXT GlobalContext::instance()

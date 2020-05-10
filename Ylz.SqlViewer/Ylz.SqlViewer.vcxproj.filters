@@ -2,9 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="YlzSqlViewer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Config.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -47,6 +44,9 @@
     <ClCompile Include="SearchEdit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MainView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Resource Files">
@@ -76,9 +76,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="YlzSqlViewer.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="SettingsView.h">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -109,11 +106,11 @@
     <QtMoc Include="SearchEdit.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="MainView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="YlzSqlViewer.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
     <QtUic Include="SettingsView.ui">
       <Filter>Form Files</Filter>
     </QtUic>
@@ -124,6 +121,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="DDLView.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="MainViewer.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

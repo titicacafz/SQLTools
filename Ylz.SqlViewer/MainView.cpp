@@ -1,4 +1,4 @@
-#include "YlzSqlViewer.h"
+#include "MainView.h"
 #include <QDesktopServices>
 #include <QDockWidget>
 #include <QMdiSubWindow>
@@ -10,7 +10,7 @@
 #include "DDLView.h"
 
 
-YlzSqlViewer::YlzSqlViewer(QWidget *parent)
+MainViewer::MainViewer(QWidget *parent)
     : QMainWindow(parent),
     databaseView(nullptr),
     traceView(nullptr),
@@ -24,18 +24,18 @@ YlzSqlViewer::YlzSqlViewer(QWidget *parent)
     ui.mdiArea->setViewMode(QMdiArea::TabbedView);
     ui.mdiArea->setTabsClosable(true);  //页面可以关闭
 
-    connect(ui.actionMonitor, &QAction::triggered, this, &YlzSqlViewer::onMonitor);
-    connect(ui.actionSettings, &QAction::triggered, this, &YlzSqlViewer::onSettings);
-    connect(ui.actionLogDownload, &QAction::triggered, this, &YlzSqlViewer::onLogDownload);
-    connect(ui.actionDatabase, &QAction::triggered, this, &YlzSqlViewer::onDatabase);  
-    connect(ui.actionDDL, &QAction::triggered, this, &YlzSqlViewer::onDDL);
+    connect(ui.actionMonitor, &QAction::triggered, this, &MainViewer::onMonitor);
+    connect(ui.actionSettings, &QAction::triggered, this, &MainViewer::onSettings);
+    connect(ui.actionLogDownload, &QAction::triggered, this, &MainViewer::onLogDownload);
+    connect(ui.actionDatabase, &QAction::triggered, this, &MainViewer::onDatabase);  
+    connect(ui.actionDDL, &QAction::triggered, this, &MainViewer::onDDL);
 
     status_bar = this->statusBar();
     status_bar->setGeometry(this->x(), this->height() - 30, this->width(), 30);          
 
 }
 
-void YlzSqlViewer::onSettings()
+void MainViewer::onSettings()
 {
     SettingsView * settingView = new SettingsView(this);
     settingView->setFeatures(QDockWidget::AllDockWidgetFeatures);
@@ -43,15 +43,15 @@ void YlzSqlViewer::onSettings()
 }
 
 //日志下载
-void YlzSqlViewer::onLogDownload()
+void MainViewer::onLogDownload()
 {
-    Config & config = CONTEXT.config;
+    Config & config = CONTEXT.m_config;
     QString fullLogUrl = config.get("fullLogUrl");
     QDesktopServices::openUrl(fullLogUrl);
 }
 
 //数据库查看界面
-void YlzSqlViewer::onDatabase()
+void MainViewer::onDatabase()
 {    
     if (databaseView == nullptr)
     {
@@ -65,7 +65,7 @@ void YlzSqlViewer::onDatabase()
 }
 
 //打开监控
-void YlzSqlViewer::onMonitor()
+void MainViewer::onMonitor()
 {
     TraceView *traceView = new TraceView(this);
     QMdiSubWindow *subWin = ui.mdiArea->addSubWindow(traceView);
@@ -75,7 +75,7 @@ void YlzSqlViewer::onMonitor()
     status_bar->showMessage(tr("Monitor View"));
 }
 
-void YlzSqlViewer::onDDL()
+void MainViewer::onDDL()
 {
     if (ddlView == nullptr) {
         ddlView = new DDLView(this);
