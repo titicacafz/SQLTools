@@ -10,7 +10,7 @@
 #endif
 
 
-class MiniDump
+class MiniDump final
 {
 private:
 	MiniDump();
