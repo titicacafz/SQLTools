@@ -39,7 +39,7 @@ private:
     //单行注释
     QTextCharFormat singleLineCommentFormat;
     //多行注释
-    QTextCharFormat multiLineCommentFormat;    
+    QTextCharFormat multiLineCommentFormat;
 
     //函数
     QTextCharFormat functionFormat;

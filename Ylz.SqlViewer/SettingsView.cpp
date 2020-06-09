@@ -41,8 +41,8 @@ void SettingsView::on_save()
     QString displayString;
     QFile file(path);
     if (file.open(QIODevice::ReadWrite | QIODevice::Text)) {
-        QTextStream out(&file);        
-        out << ui.textSettings->document()->toPlainText();        
+        QTextStream out(&file);
+        out << ui.textSettings->document()->toPlainText();
         out.flush();
         file.close();
         Config & config = CONTEXT.config();

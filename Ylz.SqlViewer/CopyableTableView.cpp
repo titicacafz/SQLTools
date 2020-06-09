@@ -14,7 +14,7 @@ CopyableTableView::~CopyableTableView()
 }
 
 void CopyableTableView::on_copy()
-{     
+{
     QString copied_text;
     QModelIndexList current_selected_indexs = this->selectedIndexes();
     if (current_selected_indexs.size() < 1)
@@ -39,7 +39,7 @@ void CopyableTableView::on_copy()
 }
 
 void CopyableTableView::keyPressEvent(QKeyEvent * ev)
-{       
+{
     if (ev->matches(QKeySequence::Copy))
     {
         on_copy();

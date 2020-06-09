@@ -28,10 +28,10 @@ DdlView::~DdlView()
 //初始化界面
 void DdlView::init_view()
 {
-    m_search_edit = new SearchEdit(this);    
+    m_search_edit = new SearchEdit(this);
     m_tree_view = new QTreeView(this);
-    
-    m_model = new QStandardItemModel(m_tree_view);      
+
+    m_model = new QStandardItemModel(m_tree_view);
 
     QStandardItem* tables = new QStandardItem(QString(tr("Tables")));
     QStandardItem* views = new QStandardItem(QString(tr("Views")));
@@ -50,13 +50,11 @@ void DdlView::init_view()
             tables->appendRow(itemChild);
         }
 
-        
         for (QList<QString>::iterator iter = dbContext.user_views.begin(); iter != dbContext.user_views.end(); iter++)
         {
             QStandardItem* itemChild = new QStandardItem(*iter);
             views->appendRow(itemChild);
         }
-        
 
         for (QList<QString>::iterator iter = dbContext.user_procs.begin(); iter != dbContext.user_procs.end(); iter++)
         {
@@ -74,11 +72,11 @@ void DdlView::init_view()
     m_model->appendRow(views);
     m_model->appendRow(procedures);
     m_model->appendRow(functions);
-    
-    m_tree_view->setModel(m_model);    
+
+    m_tree_view->setModel(m_model);
     m_tree_view->header()->hide();
     m_tree_view->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    
+
     m_text_edit = new SqlEdit(this);
     Highlighter *highlighter = new Highlighter(m_text_edit->document());
     m_table_view = new CopyableTableView(this);
@@ -87,8 +85,7 @@ void DdlView::init_view()
     m_table_view->setSelectionBehavior(QAbstractItemView::SelectRows);//设置选中模式
     m_table_view->setAlternatingRowColors(true);
     m_table_view->setVisible(false);
-    
-    
+
     //总体水平布局管理器
     QHBoxLayout *hboxLayout = new QHBoxLayout(this);
 
@@ -114,7 +111,7 @@ void DdlView::on_current_changed(const QModelIndex &current, const QModelIndex &
     QStandardItem* item = m_model->itemFromIndex(current);
     if (item == nullptr)
         return;
-    
+
     QStandardItem* parent = item->parent();
     if (parent == nullptr)
         return;
@@ -140,7 +137,6 @@ void DdlView::on_current_changed(const QModelIndex &current, const QModelIndex &
         m_table_view->setVisible(false);
         m_text_edit->setVisible(true);
     }
-    
 }
 
 void DdlView::show_table(const QString & name)
@@ -180,7 +176,7 @@ void DdlView::show_procedure(const QString & name)
 {
     m_text_edit->clear();
     m_text_edit->appendPlainText("create or replace ");
-    QString sql_text = "select text from all_source where name = '"+name+"' and type = 'PROCEDURE'";
+    QString sql_text = "select text from all_source where name = '" + name + "' and type = 'PROCEDURE'";
     QSqlQuery query(DbConnection::database());
     query.exec(sql_text);
     while (query.next())
@@ -213,8 +209,8 @@ void DdlView::show_function(const QString & name)
 void DdlView::show_view(const QString & name)
 {
     m_text_edit->clear();
-    m_text_edit->appendPlainText("create or replace view "+name+" as ");
-    QString sql_text = "select text from all_views where view_name='"+name+"'";
+    m_text_edit->appendPlainText("create or replace view " + name + " as ");
+    QString sql_text = "select text from all_views where view_name='" + name + "'";
     QSqlQuery query(DbConnection::database());
     query.exec(sql_text);
     while (query.next())
@@ -234,19 +230,19 @@ void DdlView::on_return_pressed()
     if (toSearch.isEmpty())
         return;
 
-    m_tree_view->collapseAll(); 
+    m_tree_view->collapseAll();
     //夫节点
     for (int i = 0; i < m_model->rowCount(); i++)
     {
-        QStandardItem *item = m_model->item(i);          
+        QStandardItem *item = m_model->item(i);
         //子节点
         for (int j = 0; j < item->rowCount(); j++)
         {
-            QStandardItem * childitem = item->child(j);            
+            QStandardItem * childitem = item->child(j);
             if (childitem->text() == toSearch)
             {
                 m_tree_view->expand(item->index());
-                QItemSelectionModel * selectModel= m_tree_view->selectionModel();
+                QItemSelectionModel * selectModel = m_tree_view->selectionModel();
                 selectModel->select(childitem->index(), QItemSelectionModel::Select);
                 emit selectModel->currentChanged(childitem->index(), childitem->index());
                 return;

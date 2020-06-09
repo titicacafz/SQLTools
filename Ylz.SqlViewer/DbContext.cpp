@@ -10,7 +10,7 @@ void DbContext::load(QSqlDatabase & db)
         return;
     }
     //
-    {    
+    {
         user_tables.clear();
         QSqlQuery query(db); //
         query.exec("select table_name from all_tables order by table_name");
@@ -20,9 +20,9 @@ void DbContext::load(QSqlDatabase & db)
         }
     }
 
-    {        
+    {
         user_procs.clear();
-        QSqlQuery query(db); //存储过程      
+        QSqlQuery query(db); //存储过程
         query.exec("select object_name from all_procedures where object_type='PROCEDURE' order by object_name");
         while (query.next())
         {
@@ -32,7 +32,7 @@ void DbContext::load(QSqlDatabase & db)
 
     {
         user_funcs.clear();
-        QSqlQuery query(db); //函数      
+        QSqlQuery query(db); //函数
         query.exec("select object_name from all_procedures where object_type='FUNCTION' order by object_name");
         while (query.next())
         {

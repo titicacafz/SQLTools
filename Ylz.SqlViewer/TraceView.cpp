@@ -30,7 +30,6 @@ TraceView::~TraceView()
 
 void TraceView::init_view()
 {
-
     m_position = 0;
     //
     m_manager = new QNetworkAccessManager(this);
@@ -80,13 +79,13 @@ void TraceView::on_start()
         return;
     }
     ui.actionStart->setEnabled(false);
-    ui.actionStop->setEnabled(true);    
+    ui.actionStop->setEnabled(true);
     m_timer->start(500);
 }
 
 //停止监控
 void TraceView::on_stop()
-{    
+{
     ui.actionStart->setEnabled(true);
     ui.actionStop->setEnabled(false);
     m_position = 0;
@@ -161,9 +160,9 @@ void TraceView::on_update(QNetworkReply *reply)
                 }
 
                 QTextCursor cursor = m_text_edit->textCursor();
-                //将光标移动到文本结尾，便于删除字符测试，实际上并不需要该步骤            
+                //将光标移动到文本结尾，便于删除字符测试，实际上并不需要该步骤
                 cursor.movePosition(QTextCursor::End);
-                m_text_edit->setTextCursor(cursor);                
+                m_text_edit->setTextCursor(cursor);
             }
         }
     }

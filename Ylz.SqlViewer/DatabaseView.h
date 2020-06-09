@@ -33,8 +33,6 @@ private:
     //连接数据库
     void on_connect_db();
 
-
     //运行SQL
     void on_run_sql();
-
 };

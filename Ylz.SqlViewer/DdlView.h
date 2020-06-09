@@ -46,5 +46,4 @@ private:
 
     //ËÑË÷¿òÊäÈë»Ø³µ
     void on_return_pressed();
-
 };

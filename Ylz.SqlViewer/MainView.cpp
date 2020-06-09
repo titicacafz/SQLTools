@@ -9,7 +9,6 @@
 #include "TraceView.h"
 #include "DDLView.h"
 
-
 MainViewer::MainViewer(QWidget *parent)
     : QMainWindow(parent),
     m_database_view(nullptr),
@@ -18,7 +17,7 @@ MainViewer::MainViewer(QWidget *parent)
 {
     QIcon icon(":/YlzSqlViewer/Resources/app.ico");
     this->setWindowIcon(icon);
-    ui.setupUi(this);   
+    ui.setupUi(this);
     setWindowState(Qt::WindowMaximized);
 
     ui.mdiArea->setViewMode(QMdiArea::TabbedView);
@@ -27,12 +26,11 @@ MainViewer::MainViewer(QWidget *parent)
     connect(ui.actionMonitor, &QAction::triggered, this, &MainViewer::on_monitor);
     connect(ui.actionSettings, &QAction::triggered, this, &MainViewer::on_settings);
     connect(ui.actionLogDownload, &QAction::triggered, this, &MainViewer::on_log_download);
-    connect(ui.actionDatabase, &QAction::triggered, this, &MainViewer::on_database);  
+    connect(ui.actionDatabase, &QAction::triggered, this, &MainViewer::on_database);
     connect(ui.actionDDL, &QAction::triggered, this, &MainViewer::on_ddl);
 
     m_status_bar = this->statusBar();
-    m_status_bar->setGeometry(this->x(), this->height() - 30, this->width(), 30);          
-
+    m_status_bar->setGeometry(this->x(), this->height() - 30, this->width(), 30);
 }
 
 void MainViewer::on_settings()
@@ -52,7 +50,7 @@ void MainViewer::on_log_download()
 
 //数据库查看界面
 void MainViewer::on_database()
-{    
+{
     if (m_database_view == nullptr)
     {
         m_database_view = new DatabaseView(this);
@@ -83,8 +81,7 @@ void MainViewer::on_ddl()
         subWin->setAttribute(Qt::WA_DeleteOnClose);
         subWin->setWindowIcon(QIcon());
     }
-            
-    m_ddl_view->show();
-    m_status_bar->showMessage(tr("DDL View"));    
-}
 
+    m_ddl_view->show();
+    m_status_bar->showMessage(tr("DDL View"));
+}

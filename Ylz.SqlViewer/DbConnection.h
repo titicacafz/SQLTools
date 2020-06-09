@@ -9,4 +9,3 @@ class DbConnection final
 public:
     static QSqlDatabase database();
 };
-

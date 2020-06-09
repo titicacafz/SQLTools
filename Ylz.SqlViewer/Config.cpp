@@ -17,7 +17,7 @@ Config::~Config()
 
 //获取
 QString Config::get(const QString & name)
-{   
+{
     ini->beginGroup(ini->value("env").toString());
     return QString(ini->value(name).toString());
 }
@@ -35,16 +35,16 @@ void Config::load()
 
     ini->beginGroup(env);
     //监控相关设置
-    QString server(ini->value("server").toString());    
-    QString remoteIp(ini->value("remoteIp").toString());    
+    QString server(ini->value("server").toString());
+    QString remoteIp(ini->value("remoteIp").toString());
     QString fullLogUrl(ini->value("fullLogUrl").toString());
 
     //数据库相关设置
     QString db_driver(ini->value("db_driver").toString());
-    QString db_host(ini->value("db_host").toString());    
-    QString db_port(ini->value("db_port").toString());    
-    QString db_database(ini->value("db_database").toString());    
-    QString db_user(ini->value("db_user").toString());    
-    QString db_pass(ini->value("db_pass").toString()); 
+    QString db_host(ini->value("db_host").toString());
+    QString db_port(ini->value("db_port").toString());
+    QString db_database(ini->value("db_database").toString());
+    QString db_user(ini->value("db_user").toString());
+    QString db_pass(ini->value("db_pass").toString());
     ini->endGroup();
 }

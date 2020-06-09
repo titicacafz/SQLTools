@@ -238,31 +238,30 @@ Highlighter::Highlighter(QTextDocument *parent)
             QStringLiteral("\\bwhen\\b"),
             QStringLiteral("\\bwhere\\b"),
             QStringLiteral("\\bwhile\\b"),
-            QStringLiteral("\\bxor\\b")            
+            QStringLiteral("\\bxor\\b")
     };
     for (const QString &pattern : keywordPatterns) {
         rule.pattern = QRegularExpression(pattern);
         rule.format = keywordFormat;
         highlightingRules.append(rule);
     }
-    
+
     singleLineCommentFormat.setForeground(Qt::darkGray);
     rule.pattern = QRegularExpression(QStringLiteral("--[^\n]*"));
     rule.format = singleLineCommentFormat;
     highlightingRules.append(rule);
 
     multiLineCommentFormat.setForeground(Qt::darkGray);
-    
-    
+
     functionFormat.setForeground(Qt::blue);
     rule.pattern = QRegularExpression(QStringLiteral("\\b[A-Za-z0-9_]+(?=\\()"));
     rule.format = functionFormat;
     highlightingRules.append(rule);
-    
+
     //commentStartExpression = QRegularExpression(QStringLiteral("/\\*"));
     //commentEndExpression = QRegularExpression(QStringLiteral("\\*/"));
     stringExpression = QRegularExpression(QStringLiteral("\\'"));
-    
+
     stringFormat.setForeground(Qt::darkGreen);
     redtagFormat.setForeground(Qt::red);
 }
@@ -276,8 +275,8 @@ void Highlighter::highlightBlock(const QString &text)
             setFormat(match.capturedStart(), match.capturedLength(), rule.format);
         }
     }
-    
-    for (auto i=0; i <= text.size() ; i++)
+
+    for (auto i = 0; i <= text.size(); i++)
     {
         auto character = text.data()[i];
         if (
@@ -320,14 +319,12 @@ void Highlighter::highlightBlock(const QString &text)
 
     /*
     setCurrentBlockState(0);
-    
+
     startIndex = 0;
     if (previousBlockState() != 1)
         startIndex = text.indexOf(commentStartExpression);
 
-    
     while (startIndex >= 0) {
-        
         QRegularExpressionMatch match = commentEndExpression.match(text, startIndex);
         int endIndex = match.capturedStart();
         int commentLength = 0;

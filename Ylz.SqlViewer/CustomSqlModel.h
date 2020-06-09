@@ -11,4 +11,3 @@ public:
 
     QVariant data(const QModelIndex &item, int role) const override;
 };
-

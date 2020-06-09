@@ -12,6 +12,6 @@ QSqlDatabase DbConnection::database()
         db.setUserName(config.get("db_user"));
         db.setPassword(config.get("db_pass"));
     }
-      
+
     return QSqlDatabase::database("hisdb");
 }

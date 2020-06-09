@@ -4,7 +4,7 @@ class QSettings;
 class QString;
 
 class Config final
-{    
+{
 public:
     Config();
     ~Config();
@@ -15,9 +15,6 @@ public:
     //加载配置文件内容
     void load();
 
-
 private:
-    QSettings *ini;   
-
+    QSettings *ini;
 };
-

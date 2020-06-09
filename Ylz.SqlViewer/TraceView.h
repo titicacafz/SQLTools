@@ -26,14 +26,12 @@ private:
     long long m_position;
 
     QNetworkAccessManager * m_manager;
-    
 
     //初始化界面
     void init_view();
 
     //事件挂接
     void init_event();
-
 
     //开始监控
     void on_start();

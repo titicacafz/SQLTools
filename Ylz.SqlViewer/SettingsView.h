@@ -14,7 +14,6 @@ public:
 private:
     Ui::SettingsView ui;
 
-
     void load();
 
     void on_save();

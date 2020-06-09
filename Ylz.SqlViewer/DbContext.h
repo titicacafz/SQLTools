@@ -22,4 +22,3 @@ public:
     //йсм╪
     QList<QString> user_views;
 };
-

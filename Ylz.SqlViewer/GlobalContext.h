@@ -3,7 +3,6 @@
 #include "Config.h"
 #include "DbContext.h"
 
-
 class GlobalContext
 {
 public:
@@ -13,7 +12,7 @@ public:
     {
         static GlobalContext context;
         return context;
-    }    
+    }
 
     Config & config()
     {

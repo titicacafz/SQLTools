@@ -3,12 +3,10 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_MainViewer.h"
 
-
 class DatabaseView;
 class TraceView;
 class DdlView;
 class QMdiSubWindow;
-
 
 class MainViewer : public QMainWindow
 {
@@ -19,8 +17,8 @@ public:
 
 private:
     Ui::YlzSqlViewerClass ui;
- 
-    QStatusBar * m_status_bar; 
+
+    QStatusBar * m_status_bar;
 
     DatabaseView * m_database_view;
     TraceView *m_trace_view;
@@ -39,5 +37,5 @@ private:
     void on_database();
 
     //DDL
-    void on_ddl();    
+    void on_ddl();
 };
