@@ -35,6 +35,7 @@ void TraceView::init_view()
     m_manager = new QNetworkAccessManager(this);
 
     m_timer = new QTimer(this);
+    
 
     QToolBar * toolbar = new QToolBar(this);
     toolbar->setMaximumHeight(40);
@@ -42,15 +43,20 @@ void TraceView::init_view()
     toolbar->addAction(ui.actionStop);
     toolbar->addAction(ui.actionClear);
     toolbar->addAction(ui.actionSave);
+    toolbar->addAction(ui.actionFind);
 
     m_text_edit = new QPlainTextEdit(this);
     Highlighter *highlighter = new Highlighter(m_text_edit->document());
     m_text_edit->setReadOnly(true);
 
+   
+
     QVBoxLayout *vboxLayout = new QVBoxLayout(this);
     vboxLayout->addWidget(toolbar);
     vboxLayout->addWidget(m_text_edit);
     setLayout(vboxLayout);
+
+    m_find_dialog = new FindDialog(this, m_text_edit);
 }
 
 void TraceView::init_event()
@@ -60,6 +66,7 @@ void TraceView::init_event()
     connect(ui.actionStop, &QAction::triggered, this, &TraceView::on_stop);
     connect(ui.actionClear, &QAction::triggered, this, &TraceView::on_clear);
     connect(ui.actionSave, &QAction::triggered, this, &TraceView::on_save);
+    connect(ui.actionFind, &QAction::triggered, this, &TraceView::on_find);
 
     //网络相关挂接
     connect(m_manager, &QNetworkAccessManager::finished, this, &TraceView::on_update);;   //GET结束读取信息
@@ -201,4 +208,9 @@ void TraceView::on_timer()
     url.setQuery(postData);
     QNetworkRequest request(url);
     m_manager->get(request);
+}
+
+void TraceView::on_find()
+{
+    m_find_dialog->onShow();
 }

@@ -2,6 +2,7 @@
 
 #include <QWidget>
 #include "ui_TraceView.h"
+#include "FindDialog.h"
 
 class QPlainTextEdit;
 class QNetworkAccessManager;
@@ -20,6 +21,9 @@ private:
 
     //显示的日志的编辑框
     QPlainTextEdit * m_text_edit;
+
+    //搜索对话框
+    FindDialog *m_find_dialog;
 
     QTimer * m_timer;
 
@@ -50,4 +54,7 @@ private:
 
     //定时器，先这么用
     void on_timer();
+
+    //搜索
+    void on_find();
 };

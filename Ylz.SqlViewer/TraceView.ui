@@ -61,6 +61,18 @@
     <string>Save</string>
    </property>
   </action>
+  <action name="actionFind">
+   <property name="icon">
+    <iconset resource="YlzSqlViewer.qrc">
+     <normaloff>:/YlzSqlViewer/Resources/search.ico</normaloff>:/YlzSqlViewer/Resources/search.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Find</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>

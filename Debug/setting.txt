@@ -1,5 +1,5 @@
 [General]
-env=srmtest
+env=dev
 
 [dev]
 server=http://10.16.0.78:8009/__manager__/logmonitor
@@ -33,5 +33,12 @@ db_port=1521
 db_database=ylzhis
 db_user=SD_HOSPITAL
 db_pass=rmyysd_hospital
+
+
+
+
+l
+
+
 
 

@@ -1,5 +1,5 @@
 [General]
-env=mzsf_dev
+env=dev
 
 [dev]
 server=http://10.16.0.78:8009/__manager__/logmonitor
@@ -44,6 +44,22 @@ db_port=1521
 db_database=newhis9
 db_user=SD_HOSPITAL
 db_pass=SD_HOSPITAL
+
+[srmtest-in-mzsf]
+server=http://129.1.20.84:17009/__manager__/logmonitor
+remoteIp=
+fullLogUrl="http://129.1.20.84:17009/__manager__/log?type=all"
+db_driver=QOCI
+db_host=129.1.20.243
+db_port=1521
+db_database=his13
+db_user=sd_hospital
+db_pass=sd_hospital
+
+
+
+
+
 
 
 
