@@ -48,6 +48,7 @@
    <addaction name="separator"/>
    <addaction name="actionSettings"/>
    <addaction name="separator"/>
+   <addaction name="actionLogSearch"/>
    <addaction name="actionLogDownload"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
@@ -155,6 +156,18 @@
    </property>
    <property name="text">
     <string>DDL</string>
+   </property>
+  </action>
+  <action name="actionLogSearch">
+   <property name="icon">
+    <iconset resource="YlzSqlViewer.qrc">
+     <normaloff>:/YlzSqlViewer/Resources/log_search.ico</normaloff>:/YlzSqlViewer/Resources/log_search.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Log Search</string>
+   </property>
+   <property name="toolTip">
+    <string>Log Search</string>
    </property>
   </action>
  </widget>

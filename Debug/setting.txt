@@ -1,10 +1,11 @@
 [General]
-env=dev
+env=srmtest
 
 [dev]
 server=http://10.16.0.78:8009/__manager__/logmonitor
 remoteIp=
 fullLogUrl="http://10.16.0.78:8009/__manager__/log?type=trace"
+logSearchUrl=http://10.16.0.78:8009/__manager__/logbydate
 db_driver=QOCI
 db_host=10.16.0.24
 db_port=1521
@@ -16,6 +17,7 @@ db_pass=SD_HOSPITAL
 server=http://10.16.0.78:18009/__manager__/logmonitor
 remoteIp=
 fullLogUrl="http://10.16.0.78:18009/__manager__/log?type=trace"
+logSearchUrl=http://10.16.0.78:18009/__manager__/logbydate
 db_driver=QOCI
 db_host=10.16.0.24
 db_port=1521
@@ -27,17 +29,13 @@ db_pass=SD_HOSPITAL
 server=http://10.10.10.28:9009/__manager__/logmonitor
 remoteIp=
 fullLogUrl="http://10.10.10.28:9009/__manager__/log?type=all"
+logSearchUrl=http://10.10.10.28:9009/__manager__/logbydate
 db_driver=QOCI
 db_host=10.10.10.11
 db_port=1521
 db_database=ylzhis
 db_user=SD_HOSPITAL
 db_pass=rmyysd_hospital
-
-
-
-
-l
 
 
 

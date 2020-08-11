@@ -50,6 +50,9 @@
     <ClCompile Include="FindDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SearchView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Resource Files">
@@ -115,6 +118,9 @@
     <QtMoc Include="FindDialog.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="SearchView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="SettingsView.ui">
@@ -133,6 +139,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="FindDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="SearchView.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

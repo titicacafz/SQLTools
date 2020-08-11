@@ -110,6 +110,7 @@
     <ClCompile Include="MainView.cpp" />
     <ClCompile Include="MiniDump.cpp" />
     <ClCompile Include="SearchEdit.cpp" />
+    <ClCompile Include="SearchView.cpp" />
     <ClCompile Include="SettingsView.cpp" />
     <ClCompile Include="SqlEdit.cpp" />
     <ClCompile Include="TraceView.cpp" />
@@ -118,6 +119,7 @@
     <QtUic Include="DatabaseView.ui" />
     <QtUic Include="DdlView.ui" />
     <QtUic Include="FindDialog.ui" />
+    <QtUic Include="SearchView.ui" />
     <QtUic Include="SettingsView.ui" />
     <QtUic Include="TraceView.ui" />
     <QtUic Include="MainViewer.ui" />
@@ -127,6 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h" />
+    <QtMoc Include="SearchView.h" />
     <QtMoc Include="SqlEdit.h" />
     <QtMoc Include="SearchEdit.h" />
     <QtMoc Include="TraceView.h" />

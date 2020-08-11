@@ -8,13 +8,15 @@
 #include "DatabaseView.h"
 #include "TraceView.h"
 #include "DDLView.h"
+#include "SearchView.h"
 
 MainViewer::MainViewer(QWidget *parent)
     : QMainWindow(parent),
     m_database_view(nullptr),
     m_trace_view(nullptr),
-    m_ddl_view(nullptr)
-{
+    m_ddl_view(nullptr),
+    m_search_view(nullptr)
+{    
     QIcon icon(":/YlzSqlViewer/Resources/app.ico");
     this->setWindowIcon(icon);
     ui.setupUi(this);
@@ -28,6 +30,7 @@ MainViewer::MainViewer(QWidget *parent)
     connect(ui.actionLogDownload, &QAction::triggered, this, &MainViewer::on_log_download);
     connect(ui.actionDatabase, &QAction::triggered, this, &MainViewer::on_database);
     connect(ui.actionDDL, &QAction::triggered, this, &MainViewer::on_ddl);
+    connect(ui.actionLogSearch, &QAction::triggered, this, &MainViewer::on_log_search);
 
     m_status_bar = this->statusBar();
     m_status_bar->setGeometry(this->x(), this->height() - 30, this->width(), 30);
@@ -84,4 +87,17 @@ void MainViewer::on_ddl()
 
     m_ddl_view->show();
     m_status_bar->showMessage(tr("DDL View"));
+}
+
+void MainViewer::on_log_search()
+{
+    if (m_search_view == nullptr) {
+        m_search_view = new LogSearchView(this);
+        QMdiSubWindow* subWin = ui.mdiArea->addSubWindow(m_search_view);
+        subWin->setAttribute(Qt::WA_DeleteOnClose);
+        subWin->setWindowIcon(QIcon());
+    }
+
+    m_search_view->show();
+    m_status_bar->showMessage(tr("Log Search View"));
 }

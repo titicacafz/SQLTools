@@ -13,5 +13,6 @@
         <file>Resources/conn_db.ico</file>
         <file>Resources/ddl.ico</file>
         <file>Resources/search.ico</file>
+        <file>Resources/log_search.ico</file>
     </qresource>
 </RCC>

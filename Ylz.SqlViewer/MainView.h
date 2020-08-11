@@ -6,6 +6,7 @@
 class DatabaseView;
 class TraceView;
 class DdlView;
+class LogSearchView;
 class QMdiSubWindow;
 
 class MainViewer : public QMainWindow
@@ -23,6 +24,7 @@ private:
     DatabaseView * m_database_view;
     TraceView *m_trace_view;
     DdlView * m_ddl_view;
+    LogSearchView * m_search_view;
 
     //´ò¿ª¼à¿Ø
     void on_monitor();
@@ -38,4 +40,6 @@ private:
 
     //DDL
     void on_ddl();
+
+    void on_log_search();
 };
