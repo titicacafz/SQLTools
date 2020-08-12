@@ -29,6 +29,7 @@ bool FindDialog::event(QEvent* evt)
 
 void FindDialog::onShow()
 {
+    
     if (m_text == nullptr)
         return;
 
@@ -37,6 +38,7 @@ void FindDialog::onShow()
         return;
 
     m_findEdit.setText(target);
+    
 
     this->show();
 }

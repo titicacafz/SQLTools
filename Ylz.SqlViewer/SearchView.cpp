@@ -19,10 +19,21 @@ LogSearchView::LogSearchView(QWidget *parent)
     Highlighter *highlighter = new Highlighter(ui.log_edit->document());
     ui.log_edit->setReadOnly(true);
 
+    QTime endTime = QTime::currentTime();
+    QTime beginTime = endTime.addSecs(-60*60);
+
+    ui.end_time->setTime(endTime);
+    ui.begin_time->setTime(beginTime);
+
     m_manager = new QNetworkAccessManager(this);
 
-    connect(ui.btn_find, &QPushButton::clicked, this, &LogSearchView::on_log_search);
-    connect(m_manager, &QNetworkAccessManager::finished, this, &LogSearchView::on_update);;
+    connect(ui.btn_log_get, &QPushButton::clicked, this, &LogSearchView::on_log_search);
+    connect(m_manager, &QNetworkAccessManager::finished, this, &LogSearchView::on_update);
+    connect(ui.end_time, &QTimeEdit::timeChanged, this, &LogSearchView::on_end_time_changed);
+    m_find_dialog = new FindDialog(this, ui.log_edit);
+    connect(ui.btn_log_find, &QPushButton::clicked, this, &LogSearchView::on_find);
+
+    
 }
 
 LogSearchView::~LogSearchView()
@@ -31,7 +42,7 @@ LogSearchView::~LogSearchView()
 
 void LogSearchView::on_log_search()
 {
-    ui.btn_find->setEnabled(false);
+    ui.btn_log_get->setEnabled(false);
     Config & config = CONTEXT.config();
     QString server = config.get("logSearchUrl");
     if (server.isEmpty())
@@ -105,5 +116,17 @@ void LogSearchView::on_update(QNetworkReply *reply)
         qDebug(e.what());
     }
     reply->deleteLater();
-    ui.btn_find->setEnabled(true);
+    ui.btn_log_get->setEnabled(true);
+}
+
+void LogSearchView::on_end_time_changed(const QTime &time)
+{
+    //
+    QTime beginTime = time.addSecs(-60*60);
+    ui.begin_time->setTime(beginTime);
+}
+
+void LogSearchView::on_find()
+{
+    m_find_dialog->onShow();
 }

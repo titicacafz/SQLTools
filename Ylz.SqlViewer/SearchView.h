@@ -2,6 +2,7 @@
 
 #include <QWidget>
 #include "ui_SearchView.h"
+#include "FindDialog.h"
 
 class QNetworkAccessManager;
 class QNetworkReply;
@@ -18,10 +19,16 @@ public:
 private:
     Ui::SearchView ui;
 
+    //ËÑË÷¶Ô»°¿ò
+    FindDialog *m_find_dialog;
 
     QNetworkAccessManager * m_manager;
 
     void on_log_search();
 
     void on_update(QNetworkReply *reply);
+
+    void on_end_time_changed(const QTime &time);
+
+    void on_find();
 };

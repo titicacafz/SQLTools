@@ -127,73 +127,91 @@
         <translation type="unfinished">查找</translation>
     </message>
     <message>
-        <location filename="FindDialog.cpp" line="32"/>
+        <location filename="FindDialog.cpp" line="46"/>
         <source>Find What:</source>
         <translation type="unfinished">查找目标：</translation>
     </message>
     <message>
-        <location filename="FindDialog.cpp" line="33"/>
+        <location filename="FindDialog.cpp" line="47"/>
         <source>Find Next</source>
         <translation type="unfinished">查找下一个</translation>
     </message>
     <message>
-        <location filename="FindDialog.cpp" line="34"/>
+        <location filename="FindDialog.cpp" line="48"/>
         <source>Close</source>
         <translation type="unfinished">关闭</translation>
     </message>
     <message>
-        <location filename="FindDialog.cpp" line="35"/>
+        <location filename="FindDialog.cpp" line="49"/>
         <source>Match Case</source>
         <translation type="unfinished">区分大小写</translation>
     </message>
     <message>
-        <location filename="FindDialog.cpp" line="36"/>
+        <location filename="FindDialog.cpp" line="50"/>
         <source>Backward</source>
         <translation type="unfinished">向上</translation>
     </message>
     <message>
-        <location filename="FindDialog.cpp" line="37"/>
+        <location filename="FindDialog.cpp" line="51"/>
         <source>Forward</source>
         <translation type="unfinished">向下</translation>
     </message>
     <message>
-        <location filename="FindDialog.cpp" line="39"/>
+        <location filename="FindDialog.cpp" line="53"/>
         <source>Direction</source>
         <translation type="unfinished">方向</translation>
     </message>
     <message>
-        <location filename="FindDialog.cpp" line="55"/>
-        <location filename="FindDialog.cpp" line="111"/>
+        <location filename="FindDialog.cpp" line="69"/>
+        <location filename="FindDialog.cpp" line="125"/>
         <source>Find</source>
         <translation type="unfinished">查找</translation>
     </message>
     <message>
-        <location filename="FindDialog.cpp" line="112"/>
+        <location filename="FindDialog.cpp" line="126"/>
         <source>Can not find &quot;</source>
         <translation type="unfinished">已未能发现“</translation>
     </message>
     <message>
-        <location filename="FindDialog.cpp" line="112"/>
+        <location filename="FindDialog.cpp" line="126"/>
         <source>&quot; any more...</source>
         <translation type="unfinished">”</translation>
     </message>
 </context>
 <context>
+    <name>LogSearchView</name>
+    <message>
+        <location filename="SearchView.cpp" line="46"/>
+        <source>Error Message</source>
+        <translation type="unfinished">错误信息</translation>
+    </message>
+    <message>
+        <location filename="SearchView.cpp" line="46"/>
+        <source>Please Setting Log Search Url First!</source>
+        <translation type="unfinished">请设置过滤日志地址</translation>
+    </message>
+</context>
+<context>
     <name>MainViewer</name>
     <message>
-        <location filename="MainView.cpp" line="62"/>
+        <location filename="MainView.cpp" line="65"/>
         <source>Database View</source>
         <translation type="unfinished">数据库窗口</translation>
     </message>
     <message>
-        <location filename="MainView.cpp" line="73"/>
+        <location filename="MainView.cpp" line="76"/>
         <source>Monitor View</source>
         <translation type="unfinished">监控窗口</translation>
     </message>
     <message>
-        <location filename="MainView.cpp" line="86"/>
+        <location filename="MainView.cpp" line="89"/>
         <source>DDL View</source>
         <translation type="unfinished">数据库对象查看器</translation>
+    </message>
+    <message>
+        <location filename="MainView.cpp" line="102"/>
+        <source>Log Search View</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -202,6 +220,50 @@
         <location filename="SearchEdit.cpp" line="12"/>
         <location filename="SearchEdit.cpp" line="15"/>
         <source>Search</source>
+        <translation type="unfinished">搜索</translation>
+    </message>
+</context>
+<context>
+    <name>SearchView</name>
+    <message>
+        <location filename="SearchView.ui" line="14"/>
+        <source>SearchView</source>
+        <translation type="unfinished">日志过滤</translation>
+    </message>
+    <message>
+        <location filename="SearchView.ui" line="26"/>
+        <source>过滤条件</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="SearchView.ui" line="32"/>
+        <source>IP：</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="SearchView.ui" line="42"/>
+        <source>begin time</source>
+        <translation type="unfinished">开始时间：</translation>
+    </message>
+    <message>
+        <location filename="SearchView.ui" line="55"/>
+        <location filename="SearchView.ui" line="75"/>
+        <source>HH:mm:ss</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="SearchView.ui" line="62"/>
+        <source>end time</source>
+        <translation type="unfinished">结束时间：</translation>
+    </message>
+    <message>
+        <location filename="SearchView.ui" line="82"/>
+        <source>log get</source>
+        <translation type="unfinished">获取日志</translation>
+    </message>
+    <message>
+        <location filename="SearchView.ui" line="89"/>
+        <source>Log find</source>
         <translation type="unfinished">搜索</translation>
     </message>
 </context>
@@ -325,57 +387,63 @@
         <translation type="unfinished">SQL监控工具</translation>
     </message>
     <message>
-        <location filename="MainViewer.ui" line="61"/>
-        <location filename="MainViewer.ui" line="64"/>
+        <location filename="MainViewer.ui" line="62"/>
+        <location filename="MainViewer.ui" line="65"/>
         <source>Start</source>
         <translation type="unfinished">开始</translation>
     </message>
     <message>
-        <location filename="MainViewer.ui" line="73"/>
-        <location filename="MainViewer.ui" line="76"/>
+        <location filename="MainViewer.ui" line="74"/>
+        <location filename="MainViewer.ui" line="77"/>
         <source>Stop</source>
         <translation type="unfinished">结束</translation>
     </message>
     <message>
-        <location filename="MainViewer.ui" line="85"/>
-        <location filename="MainViewer.ui" line="88"/>
+        <location filename="MainViewer.ui" line="86"/>
+        <location filename="MainViewer.ui" line="89"/>
         <source>Clear</source>
         <translation type="unfinished">清除</translation>
     </message>
     <message>
-        <location filename="MainViewer.ui" line="97"/>
-        <location filename="MainViewer.ui" line="100"/>
+        <location filename="MainViewer.ui" line="98"/>
+        <location filename="MainViewer.ui" line="101"/>
         <source>Settings</source>
         <translation type="unfinished">设置</translation>
     </message>
     <message>
-        <location filename="MainViewer.ui" line="109"/>
-        <location filename="MainViewer.ui" line="112"/>
+        <location filename="MainViewer.ui" line="110"/>
+        <location filename="MainViewer.ui" line="113"/>
         <source>Save</source>
         <translation type="unfinished">保存</translation>
     </message>
     <message>
-        <location filename="MainViewer.ui" line="121"/>
-        <location filename="MainViewer.ui" line="124"/>
+        <location filename="MainViewer.ui" line="122"/>
+        <location filename="MainViewer.ui" line="125"/>
         <source>LogDownload</source>
         <translation type="unfinished">日志下载</translation>
     </message>
     <message>
-        <location filename="MainViewer.ui" line="133"/>
-        <location filename="MainViewer.ui" line="136"/>
+        <location filename="MainViewer.ui" line="134"/>
+        <location filename="MainViewer.ui" line="137"/>
         <source>Database</source>
         <translation type="unfinished">数据库</translation>
     </message>
     <message>
-        <location filename="MainViewer.ui" line="145"/>
-        <location filename="MainViewer.ui" line="148"/>
+        <location filename="MainViewer.ui" line="146"/>
+        <location filename="MainViewer.ui" line="149"/>
         <source>Monitor</source>
         <translation type="unfinished">监控</translation>
     </message>
     <message>
-        <location filename="MainViewer.ui" line="157"/>
+        <location filename="MainViewer.ui" line="158"/>
         <source>DDL</source>
         <translation type="unfinished">数据库对象</translation>
+    </message>
+    <message>
+        <location filename="MainViewer.ui" line="167"/>
+        <location filename="MainViewer.ui" line="170"/>
+        <source>Log Search</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
