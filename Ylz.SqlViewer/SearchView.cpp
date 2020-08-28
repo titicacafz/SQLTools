@@ -8,6 +8,7 @@
 #include <QPushButton>
 #include "Config.h"
 #include <QMessageBox>
+#include <QDesktopServices>
 #include "GlobalContext.h"
 #include "HighLighter.h"
 
@@ -20,7 +21,7 @@ LogSearchView::LogSearchView(QWidget *parent)
     ui.log_edit->setReadOnly(true);
 
     QTime endTime = QTime::currentTime();
-    QTime beginTime = endTime.addSecs(-60*60);
+    QTime beginTime = endTime.addSecs(-5*60);
 
     ui.end_time->setTime(endTime);
     ui.begin_time->setTime(beginTime);
@@ -29,10 +30,10 @@ LogSearchView::LogSearchView(QWidget *parent)
 
     connect(ui.btn_log_get, &QPushButton::clicked, this, &LogSearchView::on_log_search);
     connect(m_manager, &QNetworkAccessManager::finished, this, &LogSearchView::on_update);
-    connect(ui.end_time, &QTimeEdit::timeChanged, this, &LogSearchView::on_end_time_changed);
+    connect(ui.begin_time, &QTimeEdit::timeChanged, this, &LogSearchView::on_end_time_changed);
     m_find_dialog = new FindDialog(this, ui.log_edit);
     connect(ui.btn_log_find, &QPushButton::clicked, this, &LogSearchView::on_find);
-
+    connect(ui.btn_saveto, &QPushButton::clicked, this, &LogSearchView::on_save);
     
 }
 
@@ -122,11 +123,32 @@ void LogSearchView::on_update(QNetworkReply *reply)
 void LogSearchView::on_end_time_changed(const QTime &time)
 {
     //
-    QTime beginTime = time.addSecs(-60*60);
-    ui.begin_time->setTime(beginTime);
+    QTime endTime = time.addSecs(5*60);
+    ui.end_time->setTime(endTime);
 }
 
 void LogSearchView::on_find()
 {
     m_find_dialog->onShow();
+}
+
+void LogSearchView::on_save()
+{
+    if (ui.log_edit->toPlainText().size() <= 0)
+    {
+        return;
+    }
+
+    QString tmp = QCoreApplication::applicationDirPath() + "/tmp.txt";
+    QFile file(tmp);//文件命名
+    if (!file.open(QFile::WriteOnly | QFile::Text))     //检测文件是否打开
+    {
+        QMessageBox::information(this, tr("Error Message"), tr("Please Select a Text File!"));
+        return;
+    }
+    QTextStream out(&file);                 //分行写入文件
+    out << ui.log_edit->toPlainText();
+
+    //提示保存成功
+    QDesktopServices::openUrl(QUrl::fromLocalFile(tmp));
 }

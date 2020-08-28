@@ -127,53 +127,53 @@
         <translation type="unfinished">查找</translation>
     </message>
     <message>
-        <location filename="FindDialog.cpp" line="46"/>
+        <location filename="FindDialog.cpp" line="48"/>
         <source>Find What:</source>
         <translation type="unfinished">查找目标：</translation>
     </message>
     <message>
-        <location filename="FindDialog.cpp" line="47"/>
+        <location filename="FindDialog.cpp" line="49"/>
         <source>Find Next</source>
         <translation type="unfinished">查找下一个</translation>
     </message>
     <message>
-        <location filename="FindDialog.cpp" line="48"/>
+        <location filename="FindDialog.cpp" line="50"/>
         <source>Close</source>
         <translation type="unfinished">关闭</translation>
     </message>
     <message>
-        <location filename="FindDialog.cpp" line="49"/>
+        <location filename="FindDialog.cpp" line="51"/>
         <source>Match Case</source>
         <translation type="unfinished">区分大小写</translation>
     </message>
     <message>
-        <location filename="FindDialog.cpp" line="50"/>
+        <location filename="FindDialog.cpp" line="52"/>
         <source>Backward</source>
         <translation type="unfinished">向上</translation>
     </message>
     <message>
-        <location filename="FindDialog.cpp" line="51"/>
+        <location filename="FindDialog.cpp" line="53"/>
         <source>Forward</source>
         <translation type="unfinished">向下</translation>
     </message>
     <message>
-        <location filename="FindDialog.cpp" line="53"/>
+        <location filename="FindDialog.cpp" line="55"/>
         <source>Direction</source>
         <translation type="unfinished">方向</translation>
     </message>
     <message>
-        <location filename="FindDialog.cpp" line="69"/>
-        <location filename="FindDialog.cpp" line="125"/>
+        <location filename="FindDialog.cpp" line="71"/>
+        <location filename="FindDialog.cpp" line="127"/>
         <source>Find</source>
         <translation type="unfinished">查找</translation>
     </message>
     <message>
-        <location filename="FindDialog.cpp" line="126"/>
+        <location filename="FindDialog.cpp" line="128"/>
         <source>Can not find &quot;</source>
         <translation type="unfinished">已未能发现“</translation>
     </message>
     <message>
-        <location filename="FindDialog.cpp" line="126"/>
+        <location filename="FindDialog.cpp" line="128"/>
         <source>&quot; any more...</source>
         <translation type="unfinished">”</translation>
     </message>
@@ -181,14 +181,20 @@
 <context>
     <name>LogSearchView</name>
     <message>
-        <location filename="SearchView.cpp" line="46"/>
+        <location filename="SearchView.cpp" line="51"/>
+        <location filename="SearchView.cpp" line="146"/>
         <source>Error Message</source>
         <translation type="unfinished">错误信息</translation>
     </message>
     <message>
-        <location filename="SearchView.cpp" line="46"/>
+        <location filename="SearchView.cpp" line="51"/>
         <source>Please Setting Log Search Url First!</source>
         <translation type="unfinished">请设置过滤日志地址</translation>
+    </message>
+    <message>
+        <location filename="SearchView.cpp" line="146"/>
+        <source>Please Select a Text File!</source>
+        <translation type="unfinished">请选择一个文件！</translation>
     </message>
 </context>
 <context>
@@ -265,6 +271,11 @@
         <location filename="SearchView.ui" line="89"/>
         <source>Log find</source>
         <translation type="unfinished">搜索</translation>
+    </message>
+    <message>
+        <location filename="SearchView.ui" line="96"/>
+        <source>save to</source>
+        <translation type="unfinished">保存日志</translation>
     </message>
 </context>
 <context>

@@ -31,4 +31,6 @@ private:
     void on_end_time_changed(const QTime &time);
 
     void on_find();
+
+    void on_save();
 };

@@ -30,14 +30,14 @@ bool FindDialog::event(QEvent* evt)
 void FindDialog::onShow()
 {
     
-    if (m_text == nullptr)
-        return;
-
-    QString target = m_text->textCursor().selectedText();
-    if (target == "")
-        return;
-
-    m_findEdit.setText(target);
+    if (m_text != nullptr)
+    {
+        QString target = m_text->textCursor().selectedText();
+        if (target != "")
+        {
+            m_findEdit.setText(target);
+        }            
+    }    
     
 
     this->show();
