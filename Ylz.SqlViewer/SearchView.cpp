@@ -6,6 +6,7 @@
 #include <QUrlQuery>
 #include <QNetworkReply>
 #include <QPushButton>
+#include <QHostInfo>
 #include "Config.h"
 #include <QMessageBox>
 #include <QDesktopServices>
@@ -21,10 +22,20 @@ LogSearchView::LogSearchView(QWidget *parent)
     ui.log_edit->setReadOnly(true);
 
     QTime endTime = QTime::currentTime();
-    QTime beginTime = endTime.addSecs(-5*60);
+    QTime beginTime = endTime.addSecs(-10*60);
 
     ui.end_time->setTime(endTime);
     ui.begin_time->setTime(beginTime);
+
+    //±¾»úip
+    QString host = QHostInfo::localHostName();
+    QHostInfo info = QHostInfo::fromName(host);
+
+    foreach(QHostAddress address, info.addresses())
+    {
+        if (address.protocol() == QAbstractSocket::IPv4Protocol)
+            ui.ip->setText(address.toString());
+    }
 
     m_manager = new QNetworkAccessManager(this);
 
@@ -34,7 +45,6 @@ LogSearchView::LogSearchView(QWidget *parent)
     m_find_dialog = new FindDialog(this, ui.log_edit);
     connect(ui.btn_log_find, &QPushButton::clicked, this, &LogSearchView::on_find);
     connect(ui.btn_saveto, &QPushButton::clicked, this, &LogSearchView::on_save);
-    
 }
 
 LogSearchView::~LogSearchView()

@@ -181,18 +181,18 @@
 <context>
     <name>LogSearchView</name>
     <message>
-        <location filename="SearchView.cpp" line="51"/>
-        <location filename="SearchView.cpp" line="146"/>
+        <location filename="SearchView.cpp" line="62"/>
+        <location filename="SearchView.cpp" line="157"/>
         <source>Error Message</source>
         <translation type="unfinished">错误信息</translation>
     </message>
     <message>
-        <location filename="SearchView.cpp" line="51"/>
+        <location filename="SearchView.cpp" line="62"/>
         <source>Please Setting Log Search Url First!</source>
         <translation type="unfinished">请设置过滤日志地址</translation>
     </message>
     <message>
-        <location filename="SearchView.cpp" line="146"/>
+        <location filename="SearchView.cpp" line="157"/>
         <source>Please Select a Text File!</source>
         <translation type="unfinished">请选择一个文件！</translation>
     </message>
@@ -200,22 +200,22 @@
 <context>
     <name>MainViewer</name>
     <message>
-        <location filename="MainView.cpp" line="65"/>
+        <location filename="MainView.cpp" line="66"/>
         <source>Database View</source>
         <translation type="unfinished">数据库窗口</translation>
     </message>
     <message>
-        <location filename="MainView.cpp" line="76"/>
+        <location filename="MainView.cpp" line="77"/>
         <source>Monitor View</source>
         <translation type="unfinished">监控窗口</translation>
     </message>
     <message>
-        <location filename="MainView.cpp" line="89"/>
+        <location filename="MainView.cpp" line="90"/>
         <source>DDL View</source>
         <translation type="unfinished">数据库对象查看器</translation>
     </message>
     <message>
-        <location filename="MainView.cpp" line="102"/>
+        <location filename="MainView.cpp" line="103"/>
         <source>Log Search View</source>
         <translation type="unfinished"></translation>
     </message>
@@ -247,33 +247,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="SearchView.ui" line="42"/>
+        <location filename="SearchView.ui" line="59"/>
+        <source> mins before</source>
+        <translation type="unfinished">分钟前</translation>
+    </message>
+    <message>
+        <location filename="SearchView.ui" line="80"/>
         <source>begin time</source>
         <translation type="unfinished">开始时间：</translation>
     </message>
     <message>
-        <location filename="SearchView.ui" line="55"/>
-        <location filename="SearchView.ui" line="75"/>
+        <location filename="SearchView.ui" line="93"/>
+        <location filename="SearchView.ui" line="113"/>
         <source>HH:mm:ss</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="SearchView.ui" line="62"/>
+        <location filename="SearchView.ui" line="100"/>
         <source>end time</source>
         <translation type="unfinished">结束时间：</translation>
     </message>
     <message>
-        <location filename="SearchView.ui" line="82"/>
+        <location filename="SearchView.ui" line="120"/>
         <source>log get</source>
         <translation type="unfinished">获取日志</translation>
     </message>
     <message>
-        <location filename="SearchView.ui" line="89"/>
+        <location filename="SearchView.ui" line="127"/>
         <source>Log find</source>
         <translation type="unfinished">搜索</translation>
     </message>
     <message>
-        <location filename="SearchView.ui" line="96"/>
+        <location filename="SearchView.ui" line="134"/>
         <source>save to</source>
         <translation type="unfinished">保存日志</translation>
     </message>
@@ -454,7 +459,7 @@
         <location filename="MainViewer.ui" line="167"/>
         <location filename="MainViewer.ui" line="170"/>
         <source>Log Search</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">日志事后操作</translation>
     </message>
 </context>
 </TS>

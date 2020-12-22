@@ -1,9 +1,9 @@
 [General]
-env=dev
+env=dev_zysf
 
-[dev]
+[dev_zysf]
 server=http://10.16.0.78:8009/__manager__/logmonitor
-remoteIp=
+remoteIp=10.16.100.2
 fullLogUrl="http://10.16.0.78:8009/__manager__/log?type=trace"
 logSearchUrl=http://10.16.0.78:8009/__manager__/logbydate
 db_driver=QOCI
@@ -13,11 +13,37 @@ db_database=newhis9
 db_user=SD_HOSPITAL
 db_pass=SD_HOSPITAL
 
-[test]
+[dev_mzsf]
+server=http://10.16.0.78:9009/__manager__/logmonitor
+remoteIp=10.16.100.2
+fullLogUrl="http://10.16.0.78:9009/__manager__/log?type=trace"
+logSearchUrl=http://10.16.0.78:9009/__manager__/logbydate
+db_driver=QOCI
+db_host=10.16.0.24
+db_port=1521
+db_database=newhis9
+db_user=SD_HOSPITAL
+db_pass=SD_HOSPITAL
+
+[test_zysf]
 server=http://10.16.0.78:18009/__manager__/logmonitor
 remoteIp=
 fullLogUrl="http://10.16.0.78:18009/__manager__/log?type=trace"
 logSearchUrl=http://10.16.0.78:18009/__manager__/logbydate
+db_driver=QOCI
+db_host=10.16.0.24
+db_port=1521
+db_database=sxyy2
+db_user=SD_HOSPITAL
+db_pass=SD_HOSPITAL
+
+
+
+[test_mzsf]
+server=http://10.16.0.78:19009/__manager__/logmonitor
+remoteIp=
+fullLogUrl="http://10.16.0.78:19009/__manager__/log?type=trace"
+logSearchUrl=http://10.16.0.78:19009/__manager__/logbydate
 db_driver=QOCI
 db_host=10.16.0.24
 db_port=1521
@@ -60,6 +86,9 @@ db_port=1521
 db_database=his13
 db_user=sd_hospital
 db_pass=sd_hospital
+
+
+
 
 
 

@@ -2,7 +2,7 @@
   
 del .\Ylz.SqlViewer.zip  
   
-call "D:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\Tools\VsDevCmd.bat"  
+call "D:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat"  
   
 echo "building ...."  
   

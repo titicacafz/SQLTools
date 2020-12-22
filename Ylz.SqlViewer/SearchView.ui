@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>603</width>
-    <height>326</height>
+    <width>888</width>
+    <height>483</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,6 +35,20 @@
       </item>
       <item>
        <widget class="QLineEdit" name="ip"/>
+      </item>
+      <item>
+       <widget class="Line" name="line_3">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="Line" name="line">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QLabel" name="label_2">

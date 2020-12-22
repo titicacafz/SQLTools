@@ -34,6 +34,7 @@ MainViewer::MainViewer(QWidget *parent)
 
     m_status_bar = this->statusBar();
     m_status_bar->setGeometry(this->x(), this->height() - 30, this->width(), 30);
+    ui.mainToolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 }
 
 void MainViewer::on_settings()
@@ -54,13 +55,10 @@ void MainViewer::on_log_download()
 //数据库查看界面
 void MainViewer::on_database()
 {
-    if (m_database_view == nullptr)
-    {
-        m_database_view = new DatabaseView(this);
-        QMdiSubWindow *subWin = ui.mdiArea->addSubWindow(m_database_view);
-        subWin->setAttribute(Qt::WA_DeleteOnClose);
-        subWin->setWindowIcon(QIcon());
-    }
+    m_database_view = new DatabaseView(this);
+    QMdiSubWindow* subWin = ui.mdiArea->addSubWindow(m_database_view);
+    subWin->setAttribute(Qt::WA_DeleteOnClose);
+    subWin->setWindowIcon(QIcon());
     m_database_view->show();
     m_status_bar->showMessage(tr("Database View"));
 }
@@ -78,12 +76,10 @@ void MainViewer::on_monitor()
 
 void MainViewer::on_ddl()
 {
-    if (m_ddl_view == nullptr) {
-        m_ddl_view = new DdlView(this);
-        QMdiSubWindow* subWin = ui.mdiArea->addSubWindow(m_ddl_view);
-        subWin->setAttribute(Qt::WA_DeleteOnClose);
-        subWin->setWindowIcon(QIcon());
-    }
+    m_ddl_view = new DdlView(this);
+    QMdiSubWindow* subWin = ui.mdiArea->addSubWindow(m_ddl_view);
+    subWin->setAttribute(Qt::WA_DeleteOnClose);
+    subWin->setWindowIcon(QIcon());
 
     m_ddl_view->show();
     m_status_bar->showMessage(tr("DDL View"));
@@ -91,12 +87,10 @@ void MainViewer::on_ddl()
 
 void MainViewer::on_log_search()
 {
-    if (m_search_view == nullptr) {
-        m_search_view = new LogSearchView(this);
-        QMdiSubWindow* subWin = ui.mdiArea->addSubWindow(m_search_view);
-        subWin->setAttribute(Qt::WA_DeleteOnClose);
-        subWin->setWindowIcon(QIcon());
-    }
+    m_search_view = new LogSearchView(this);
+    QMdiSubWindow* subWin = ui.mdiArea->addSubWindow(m_search_view);
+    subWin->setAttribute(Qt::WA_DeleteOnClose);
+    subWin->setWindowIcon(QIcon());
 
     m_search_view->show();
     m_status_bar->showMessage(tr("Log Search View"));
