@@ -11,12 +11,6 @@
     <ClCompile Include="TraceView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DatabaseView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CustomSqlModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="HighLighter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -29,19 +23,10 @@
     <ClCompile Include="CopyableTableView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DbContext.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DbConnection.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SearchEdit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MainView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DdlView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SqlEdit.cpp">
@@ -88,12 +73,6 @@
     <QtMoc Include="TraceView.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="DatabaseView.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="CustomSqlModel.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="HighLighter.h">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -107,9 +86,6 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="MainView.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="DdlView.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="SqlEdit.h">
@@ -129,13 +105,7 @@
     <QtUic Include="TraceView.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="DatabaseView.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
     <QtUic Include="MainViewer.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="DdlView.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="FindDialog.ui">
@@ -161,12 +131,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MiniDump.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DbContext.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DbConnection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

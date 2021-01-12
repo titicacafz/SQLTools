@@ -1,12 +1,10 @@
 @echo off   
   
-del .\Ylz.SqlViewer.zip  
-  
-call "D:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat"  
+del .\Ylz.SqlViewer.zip
   
 echo "building ...."  
   
-MSBuild "Ylz.SqlViewer.sln" /t:Rebuild /p:Platform=x86 /p:Configuration=Release  
+"D:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" "Ylz.SqlViewer.sln" /t:Rebuild /p:Platform=x86 /p:Configuration=Release  
 
 echo "creating zip package ...."
 

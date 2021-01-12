@@ -31,7 +31,7 @@
      <x>0</x>
      <y>0</y>
      <width>594</width>
-     <height>18</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
@@ -136,6 +136,9 @@
    <property name="toolTip">
     <string>Database</string>
    </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
   </action>
   <action name="actionMonitor">
    <property name="icon">
@@ -156,6 +159,9 @@
    </property>
    <property name="text">
     <string>DDL</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
    </property>
   </action>
   <action name="actionLogSearch">

@@ -43,11 +43,11 @@
   </ImportGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <QtInstall>Qt5.15.2</QtInstall>
-    <QtModules>core;gui;network;sql;widgets</QtModules>
+    <QtModules>core;gui;network;widgets</QtModules>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <QtInstall>Qt5.15.2</QtInstall>
-    <QtModules>core;gui;network;sql;widgets</QtModules>
+    <QtModules>core;gui;network;widgets</QtModules>
   </PropertyGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
     <Import Project="$(QtMsBuild)\qt.props" />
@@ -98,11 +98,6 @@
   <ItemGroup>
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="CopyableTableView.cpp" />
-    <ClCompile Include="CustomSqlModel.cpp" />
-    <ClCompile Include="DatabaseView.cpp" />
-    <ClCompile Include="DbConnection.cpp" />
-    <ClCompile Include="DbContext.cpp" />
-    <ClCompile Include="DdlView.cpp" />
     <ClCompile Include="ErrorEdit.cpp" />
     <ClCompile Include="FindDialog.cpp" />
     <ClCompile Include="HighLighter.cpp" />
@@ -116,8 +111,6 @@
     <ClCompile Include="TraceView.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="DatabaseView.ui" />
-    <QtUic Include="DdlView.ui" />
     <QtUic Include="FindDialog.ui" />
     <QtUic Include="SearchView.ui" />
     <QtUic Include="SettingsView.ui" />
@@ -133,13 +126,8 @@
     <QtMoc Include="SqlEdit.h" />
     <QtMoc Include="SearchEdit.h" />
     <QtMoc Include="TraceView.h" />
-    <QtMoc Include="DatabaseView.h" />
-    <QtMoc Include="CustomSqlModel.h" />
     <QtMoc Include="ErrorEdit.h" />
     <QtMoc Include="CopyableTableView.h" />
-    <ClInclude Include="DbConnection.h" />
-    <ClInclude Include="DbContext.h" />
-    <QtMoc Include="DdlView.h" />
     <QtMoc Include="FindDialog.h" />
     <ClInclude Include="GlobalContext.h" />
     <QtMoc Include="HighLighter.h" />

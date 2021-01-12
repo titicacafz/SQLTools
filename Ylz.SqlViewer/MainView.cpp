@@ -5,16 +5,14 @@
 
 #include "GlobalContext.h"
 #include "SettingsView.h"
-#include "DatabaseView.h"
 #include "TraceView.h"
-#include "DDLView.h"
 #include "SearchView.h"
 
 MainViewer::MainViewer(QWidget *parent)
     : QMainWindow(parent),
-    m_database_view(nullptr),
+    //m_database_view(nullptr),
     m_trace_view(nullptr),
-    m_ddl_view(nullptr),
+    //m_ddl_view(nullptr),
     m_search_view(nullptr)
 {    
     QIcon icon(":/YlzSqlViewer/Resources/app.ico");
@@ -28,8 +26,8 @@ MainViewer::MainViewer(QWidget *parent)
     connect(ui.actionMonitor, &QAction::triggered, this, &MainViewer::on_monitor);
     connect(ui.actionSettings, &QAction::triggered, this, &MainViewer::on_settings);
     connect(ui.actionLogDownload, &QAction::triggered, this, &MainViewer::on_log_download);
-    connect(ui.actionDatabase, &QAction::triggered, this, &MainViewer::on_database);
-    connect(ui.actionDDL, &QAction::triggered, this, &MainViewer::on_ddl);
+    //connect(ui.actionDatabase, &QAction::triggered, this, &MainViewer::on_database);
+    //connect(ui.actionDDL, &QAction::triggered, this, &MainViewer::on_ddl);
     connect(ui.actionLogSearch, &QAction::triggered, this, &MainViewer::on_log_search);
 
     m_status_bar = this->statusBar();
@@ -55,12 +53,7 @@ void MainViewer::on_log_download()
 //数据库查看界面
 void MainViewer::on_database()
 {
-    m_database_view = new DatabaseView(this);
-    QMdiSubWindow* subWin = ui.mdiArea->addSubWindow(m_database_view);
-    subWin->setAttribute(Qt::WA_DeleteOnClose);
-    subWin->setWindowIcon(QIcon());
-    m_database_view->show();
-    m_status_bar->showMessage(tr("Database View"));
+    
 }
 
 //打开监控
@@ -76,13 +69,7 @@ void MainViewer::on_monitor()
 
 void MainViewer::on_ddl()
 {
-    m_ddl_view = new DdlView(this);
-    QMdiSubWindow* subWin = ui.mdiArea->addSubWindow(m_ddl_view);
-    subWin->setAttribute(Qt::WA_DeleteOnClose);
-    subWin->setWindowIcon(QIcon());
-
-    m_ddl_view->show();
-    m_status_bar->showMessage(tr("DDL View"));
+    
 }
 
 void MainViewer::on_log_search()
