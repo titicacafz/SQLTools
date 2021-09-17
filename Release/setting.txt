@@ -1,42 +1,25 @@
 [General]
-env=dev_zysf
+env=srmtest
 
 [dev_zysf]
 server=http://10.16.0.78:8009/__manager__/logmonitor
 remoteIp=10.16.100.2
 fullLogUrl="http://10.16.0.78:8009/__manager__/log?type=trace"
 logSearchUrl=http://10.16.0.78:8009/__manager__/logbydate
-db_driver=QOCI
-db_host=10.16.0.24
-db_port=1521
-db_database=newhis9
-db_user=SD_HOSPITAL
-db_pass=SD_HOSPITAL
+
 
 [dev_mzsf]
 server=http://10.16.0.78:9009/__manager__/logmonitor
 remoteIp=10.16.100.2
 fullLogUrl="http://10.16.0.78:9009/__manager__/log?type=trace"
 logSearchUrl=http://10.16.0.78:9009/__manager__/logbydate
-db_driver=QOCI
-db_host=10.16.0.24
-db_port=1521
-db_database=newhis9
-db_user=SD_HOSPITAL
-db_pass=SD_HOSPITAL
+
 
 [test_zysf]
 server=http://10.16.0.78:18009/__manager__/logmonitor
 remoteIp=
 fullLogUrl="http://10.16.0.78:18009/__manager__/log?type=trace"
 logSearchUrl=http://10.16.0.78:18009/__manager__/logbydate
-db_driver=QOCI
-db_host=10.16.0.24
-db_port=1521
-db_database=sxyy2
-db_user=SD_HOSPITAL
-db_pass=SD_HOSPITAL
-
 
 
 [test_mzsf]
@@ -44,48 +27,35 @@ server=http://10.16.0.78:19009/__manager__/logmonitor
 remoteIp=
 fullLogUrl="http://10.16.0.78:19009/__manager__/log?type=trace"
 logSearchUrl=http://10.16.0.78:19009/__manager__/logbydate
-db_driver=QOCI
-db_host=10.16.0.24
-db_port=1521
-db_database=sxyy2
-db_user=SD_HOSPITAL
-db_pass=SD_HOSPITAL
 
 [srmtest]
 server=http://10.10.10.28:9009/__manager__/logmonitor
 remoteIp=
 fullLogUrl="http://10.10.10.28:9009/__manager__/log?type=all"
 logSearchUrl=http://10.10.10.28:9009/__manager__/logbydate
-db_driver=QOCI
-db_host=10.10.10.11
-db_port=1521
-db_database=ylzhis
-db_user=SD_HOSPITAL
-db_pass=rmyysd_hospital
 
 [mzsf_dev]
 server=http://10.16.0.78:9009/__manager__/logmonitor
 remoteIp=
 fullLogUrl="http://10.16.0.78:9009/__manager__/log?type=trace"
 logSearchUrl=http://10.16.0.78:9009/__manager__/logbydate
-db_driver=QOCI
-db_host=10.16.0.24
-db_port=1521
-db_database=newhis9
-db_user=SD_HOSPITAL
-db_pass=SD_HOSPITAL
+
 
 [srmtest-in-mzsf]
 server=http://129.1.20.84:17009/__manager__/logmonitor
 remoteIp=
 fullLogUrl="http://129.1.20.84:17009/__manager__/log?type=all"
 logSearchUrl=http://129.1.20.84:17009/__manager__/logbydate
-db_driver=QOCI
-db_host=129.1.20.243
-db_port=1521
-db_database=his13
-db_user=sd_hospital
-db_pass=sd_hospital
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -10,6 +10,7 @@
 #include "Config.h"
 #include <QMessageBox>
 #include <QDesktopServices>
+#include <QFile>
 #include "GlobalContext.h"
 #include "HighLighter.h"
 

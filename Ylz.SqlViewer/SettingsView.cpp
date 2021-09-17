@@ -1,5 +1,6 @@
 #include "SettingsView.h"
 #include <QTextStream>
+#include <QFile>
 #include "GlobalContext.h"
 #include "Config.h"
 

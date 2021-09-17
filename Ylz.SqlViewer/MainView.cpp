@@ -38,7 +38,7 @@ MainViewer::MainViewer(QWidget *parent)
 void MainViewer::on_settings()
 {
     SettingsView * settingView = new SettingsView(this);
-    settingView->setFeatures(QDockWidget::AllDockWidgetFeatures);
+    settingView->setFeatures(QDockWidget::DockWidgetClosable);
     addDockWidget(Qt::RightDockWidgetArea, settingView);
 }
 

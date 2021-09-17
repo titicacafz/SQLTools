@@ -12,6 +12,7 @@
 #include <QTimer>
 #include <QMessageBox>
 #include <QDesktopServices>
+#include <QFile>
 
 #include "highlighter.h"
 #include "GlobalContext.h"

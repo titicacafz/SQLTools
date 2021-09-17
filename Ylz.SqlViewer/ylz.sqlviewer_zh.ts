@@ -4,9 +4,8 @@
 <context>
     <name>DDLView</name>
     <message>
-        <location filename="DdlView.ui" line="14"/>
         <source>DDLView</source>
-        <translation type="unfinished">数据库对象查看器</translation>
+        <translation type="obsolete">数据库对象查看器</translation>
     </message>
     <message>
         <source>Tables</source>
@@ -32,91 +31,67 @@
 <context>
     <name>DatabaseView</name>
     <message>
-        <location filename="DatabaseView.ui" line="14"/>
         <source>DatabaseView</source>
-        <translation type="unfinished">数据库窗口</translation>
+        <translation type="obsolete">数据库窗口</translation>
     </message>
     <message>
-        <location filename="DatabaseView.ui" line="22"/>
         <source>ConnectDb</source>
-        <translation type="unfinished">连接数据库</translation>
+        <translation type="obsolete">连接数据库</translation>
     </message>
     <message>
-        <location filename="DatabaseView.ui" line="25"/>
         <source>Connect Databse</source>
-        <translation type="unfinished">连接数据库</translation>
+        <translation type="obsolete">连接数据库</translation>
     </message>
     <message>
-        <location filename="DatabaseView.ui" line="34"/>
         <source>RunSQL</source>
-        <translation type="unfinished">运行SQL</translation>
+        <translation type="obsolete">运行SQL</translation>
     </message>
     <message>
-        <location filename="DatabaseView.ui" line="37"/>
         <source>Run SQL</source>
-        <translation type="unfinished">运行SQL</translation>
-    </message>
-    <message>
-        <location filename="DatabaseView.ui" line="40"/>
-        <source>F8</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">运行SQL</translation>
     </message>
     <message>
         <source>Message</source>
         <translation type="obsolete">信息</translation>
     </message>
     <message>
-        <location filename="DatabaseView.cpp" line="60"/>
         <source>Connect to databse successed!</source>
-        <translation type="unfinished">连接数据库成功！</translation>
+        <translation type="obsolete">连接数据库成功！</translation>
     </message>
     <message>
-        <location filename="DatabaseView.cpp" line="81"/>
-        <location filename="DatabaseView.cpp" line="88"/>
         <source>Error Message</source>
-        <translation type="unfinished">错误信息</translation>
+        <translation type="obsolete">错误信息</translation>
     </message>
     <message>
-        <location filename="DatabaseView.cpp" line="66"/>
         <source>Connect to databse failed!</source>
-        <translation type="unfinished">连接数据库失败！</translation>
+        <translation type="obsolete">连接数据库失败！</translation>
     </message>
     <message>
-        <location filename="DatabaseView.cpp" line="81"/>
         <source>No SQL stament!</source>
-        <translation type="unfinished">未发现SQL语句！</translation>
+        <translation type="obsolete">未发现SQL语句！</translation>
     </message>
     <message>
-        <location filename="DatabaseView.cpp" line="88"/>
         <source>Only run select stament!</source>
-        <translation type="unfinished">仅能运行查询（select）语句！</translation>
+        <translation type="obsolete">仅能运行查询（select）语句！</translation>
     </message>
 </context>
 <context>
     <name>DdlView</name>
     <message>
-        <location filename="DdlView.cpp" line="36"/>
-        <location filename="DdlView.cpp" line="119"/>
         <source>Tables</source>
-        <translation type="unfinished">表</translation>
+        <translation type="obsolete">表</translation>
     </message>
     <message>
-        <location filename="DdlView.cpp" line="37"/>
-        <location filename="DdlView.cpp" line="123"/>
         <source>Views</source>
-        <translation type="unfinished">视图</translation>
+        <translation type="obsolete">视图</translation>
     </message>
     <message>
-        <location filename="DdlView.cpp" line="38"/>
-        <location filename="DdlView.cpp" line="127"/>
         <source>Procedures</source>
-        <translation type="unfinished">存储过程</translation>
+        <translation type="obsolete">存储过程</translation>
     </message>
     <message>
-        <location filename="DdlView.cpp" line="39"/>
-        <location filename="DdlView.cpp" line="131"/>
         <source>Functions</source>
-        <translation type="unfinished">函数</translation>
+        <translation type="obsolete">函数</translation>
     </message>
 </context>
 <context>
@@ -200,22 +175,20 @@
 <context>
     <name>MainViewer</name>
     <message>
-        <location filename="MainView.cpp" line="66"/>
         <source>Database View</source>
-        <translation type="unfinished">数据库窗口</translation>
+        <translation type="obsolete">数据库窗口</translation>
     </message>
     <message>
-        <location filename="MainView.cpp" line="77"/>
+        <location filename="MainView.cpp" line="67"/>
         <source>Monitor View</source>
         <translation type="unfinished">监控窗口</translation>
     </message>
     <message>
-        <location filename="MainView.cpp" line="90"/>
         <source>DDL View</source>
-        <translation type="unfinished">数据库对象查看器</translation>
+        <translation type="obsolete">数据库对象查看器</translation>
     </message>
     <message>
-        <location filename="MainView.cpp" line="103"/>
+        <location filename="MainView.cpp" line="83"/>
         <source>Log Search View</source>
         <translation type="unfinished"></translation>
     </message>
@@ -247,38 +220,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="SearchView.ui" line="59"/>
         <source> mins before</source>
-        <translation type="unfinished">分钟前</translation>
+        <translation type="obsolete">分钟前</translation>
     </message>
     <message>
-        <location filename="SearchView.ui" line="80"/>
+        <location filename="SearchView.ui" line="56"/>
         <source>begin time</source>
         <translation type="unfinished">开始时间：</translation>
     </message>
     <message>
-        <location filename="SearchView.ui" line="93"/>
-        <location filename="SearchView.ui" line="113"/>
+        <location filename="SearchView.ui" line="69"/>
+        <location filename="SearchView.ui" line="89"/>
         <source>HH:mm:ss</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="SearchView.ui" line="100"/>
+        <location filename="SearchView.ui" line="76"/>
         <source>end time</source>
         <translation type="unfinished">结束时间：</translation>
     </message>
     <message>
-        <location filename="SearchView.ui" line="120"/>
+        <location filename="SearchView.ui" line="96"/>
         <source>log get</source>
         <translation type="unfinished">获取日志</translation>
     </message>
     <message>
-        <location filename="SearchView.ui" line="127"/>
+        <location filename="SearchView.ui" line="103"/>
         <source>Log find</source>
         <translation type="unfinished">搜索</translation>
     </message>
     <message>
-        <location filename="SearchView.ui" line="134"/>
+        <location filename="SearchView.ui" line="110"/>
         <source>save to</source>
         <translation type="unfinished">保存日志</translation>
     </message>
@@ -338,20 +310,20 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="TraceView.cpp" line="85"/>
-        <location filename="TraceView.cpp" line="121"/>
-        <location filename="TraceView.cpp" line="192"/>
+        <location filename="TraceView.cpp" line="86"/>
+        <location filename="TraceView.cpp" line="122"/>
+        <location filename="TraceView.cpp" line="193"/>
         <source>Error Message</source>
         <translation type="unfinished">错误信息</translation>
     </message>
     <message>
-        <location filename="TraceView.cpp" line="85"/>
-        <location filename="TraceView.cpp" line="192"/>
+        <location filename="TraceView.cpp" line="86"/>
+        <location filename="TraceView.cpp" line="193"/>
         <source>Please Setting Server First!</source>
         <translation type="unfinished">请先设置日志接口服务器！</translation>
     </message>
     <message>
-        <location filename="TraceView.cpp" line="121"/>
+        <location filename="TraceView.cpp" line="122"/>
         <source>Please Select a Text File!</source>
         <translation type="unfinished">请选择一个文件！</translation>
     </message>
@@ -445,19 +417,19 @@
         <translation type="unfinished">数据库</translation>
     </message>
     <message>
-        <location filename="MainViewer.ui" line="146"/>
         <location filename="MainViewer.ui" line="149"/>
+        <location filename="MainViewer.ui" line="152"/>
         <source>Monitor</source>
         <translation type="unfinished">监控</translation>
     </message>
     <message>
-        <location filename="MainViewer.ui" line="158"/>
+        <location filename="MainViewer.ui" line="161"/>
         <source>DDL</source>
         <translation type="unfinished">数据库对象</translation>
     </message>
     <message>
-        <location filename="MainViewer.ui" line="167"/>
-        <location filename="MainViewer.ui" line="170"/>
+        <location filename="MainViewer.ui" line="173"/>
+        <location filename="MainViewer.ui" line="176"/>
         <source>Log Search</source>
         <translation type="unfinished">日志事后操作</translation>
     </message>
